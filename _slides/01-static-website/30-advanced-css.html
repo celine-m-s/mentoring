@@ -1,0 +1,501 @@
+---
+layout: slide
+---
+
+## Div and span
+
+--
+
+A `<div>` is an "anonymous" box. We use it to gather content together and to target html block elements.
+
+--
+
+Example: The Starter Kit
+
+[![]({% asset_path 22-css/starterkit.png %})](http://www.thestarterkit.info/)
+
+--
+
+###"But what if I want to target an inline element?"
+
+--
+
+Here comes the `<span>`! It will let you target inline elements and give them some extra style.
+</br>
+</br>
+
+Example: 
+
+[HTML]
+```html
+<p>Hello Rayman! I'm a <span>red</span> word!</p>
+```
+
+[CSS]
+```css
+span {
+  color: red;
+}
+```
+
+Will do that: 
+<p>Hello Rayman! I'm a <span style="color:red;">red</span> word!</p>
+
+---
+
+##Class and ID
+
+--
+
+## How do you style only the avatar?
+
+```html
+<header>
+  <img src="avatar.png">
+  <h2>Latest pictures</h2>
+  <ul>
+    <li><img src="picture1.png"></li>
+    <li><img src="picture2.png"></li>
+    <li><img src="picture3.png"></li>
+  </ul>
+</header>
+```
+
+```css
+img {
+  border-radius: 50%;
+}
+```
+
+--
+
+## Name your tag with `id`
+
+```html
+<header>
+  <img src="avatar.png" id="avatar">
+  <h2>Latest pictures</h2>
+  <ul>
+    <li><img src="picture1.png"></li>
+    <li><img src="picture2.png"></li>
+    <li><img src="picture3.png"></li>
+  </ul>
+</header>
+```
+
+```css
+#avatar {
+  border-radius: 50%;
+}
+```
+
+--
+
+## What about the latest pictures?
+
+```html
+<header>
+  <img src="avatar.png" id="avatar">
+  <h2>Latest pictures</h2>
+  <ul>
+    <li><img src="picture1.png"></li>
+    <li><img src="picture2.png"></li>
+    <li><img src="picture3.png"></li>
+  </ul>
+</header>
+```
+
+```css
+#avatar {
+  border-radius: 50%;
+}
+```
+
+--
+
+## Name your tags with `class`
+
+```html
+<header>
+  <img src="avatar.png" id="avatar">
+  <h2>Latest pictures</h2>
+  <ul>
+    <li><img src="picture1.png" class="latest-pict"></li>
+    <li><img src="picture2.png" class="latest-pict"></li>
+    <li><img src="picture3.png" class="latest-pict"></li>
+  </ul>
+</header>
+```
+
+```css
+/* begins with a # because it targets an id */
+#avatar {
+  border-radius: 50%;
+}
+
+/* begins with a . because it targets a class */
+.latest-pict {
+  border: 1px solid black;
+  box-shadow: 3px 3px 5px 6px #ccc;
+}
+```
+
+--
+
+## id or class?
+
+- An id is unique in your page. For example: a logo, a list item, a form, ...
+
+- A class is recurrent. Use it for elements that you will find several times: pictures, headings, ...
+
+--
+
+## Combine classes and ids
+
+```html
+<header>
+  <img src="avatar.png" id="avatar" class="rounded">
+  <h2>Latest pictures</h2>
+  <ul>
+    <li><img src="picture1.png" class="latest-pict"></li>
+    <li><img src="picture2.png" class="latest-pict"></li>
+    <li><img src="picture3.png" class="latest-pict"></li>
+  </ul>
+</header>
+```
+
+```css
+/* begins with a # because it targets an id */
+#avatar {
+  width: 50px;
+  height: 50px;
+}
+
+/* begins with a . because it targets a class */
+.latest-pict {
+  border: 1px solid black;
+  box-shadow: 3px 3px 5px 6px #ccc;
+}
+
+.rounded {
+  border-radius: 50%;
+}
+```
+
+--
+
+## Combine classes
+
+```html
+<header>
+  <img src="avatar.png" id="avatar" class="rounded">
+  <h2>Latest pictures</h2>
+  <ul>
+    <li><img src="picture1.png" class="latest-pict rounded"></li>
+    <li><img src="picture2.png" class="latest-pict rounded"></li>
+    <li><img src="picture3.png" class="latest-pict rounded"></li>
+  </ul>
+</header>
+```
+
+```css
+/* begins with a # because it targets an id */
+#avatar {
+  width: 50px;
+  height: 50px;
+}
+
+/* begins with a . because it targets a class */
+.latest-pict {
+  border: 1px solid black;
+  box-shadow: 3px 3px 5px 6px #ccc;
+}
+
+.rounded {
+  border-radius: 50%;
+}
+```
+
+---
+
+## Box model
+
+--
+
+###Box model
+
+![]({% asset_path 22-css/box-model.png %})
+
+--
+
+## Syntax and shortcurt
+
+```css
+.box {
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  margin-left: 40px;
+}
+```
+
+Shortcuts:
+
+```css
+.box {
+  margin: 10px 20px 30px 40px;
+  padding: 10px 20px; /* 10px top and bottom, 20px left and right */
+}
+```
+
+---
+
+## Borders
+
+--
+
+```css
+div{
+  border-top: 1px solid red;
+  border-right: 2px dotted black;
+  border-bottom: 1px dashed green;
+  border-left: 2px dotted black;
+}
+```
+
+---
+
+##Pseudo-classes
+
+--
+
+Similar to a class in HTML but not specified in the markup. 
+
+Some are **dynamic**: they're applied as a result of user interaction with the document.
+
+--
+
+Syntax: they start with a colon (:).
+
+Example of a pseudo-class: 
+
+```html
+<a>Hover me!</a>
+```
+
+```css
+a:hover {
+  opacity: 0.8;
+}
+
+```
+
+<a style="a:hover{opacity:0.8};">Hover me!</a>
+
+--
+
+###Something harder!
+
+```css
+.hidden-box {
+  display: none;
+  background-color: black;
+  opacity: 0.8;
+  height: 100%;
+}
+.parent {
+  background-color: yellow;
+  height: 200px;
+  width: 200px;
+  margin: auto;
+}
+.parent:hover .hidden-box {
+  display: block;
+}
+
+```
+<style type="text/css">
+.hidden-box {
+  display: none;
+  background-color: black;
+  opacity: 0.8;
+  height: 100%;
+}
+.parent {
+  background-color: yellow;
+  height: 200px;
+  width: 200px;
+}
+.parent:hover .hidden-box {
+  display: block;
+}
+</style>
+<div class="parent" style="margin:auto;">
+  <div class="hidden-box">
+    I am a hidden message!
+  </div>	
+</div>
+
+--
+
+##Reference
+
+[Pseudo-classes list](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
+
+---
+
+##Pseudo-elements
+
+--
+
+Pseudo-elements match virtual elements that don't really exist in your document.
+It is a useful way to create shapes with CSS only.
+
+--
+
+They start with a double-colon (::).
+
+Example of a pseudo-element:
+
+[![]({% asset_path 22-css/pseudo-element.png %})](http://codepen.io/chriscoyier/pen/zDGkw)
+
+--
+
+##Reference
+
+[Pseudo-elements list](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
+
+---
+
+##AT-rules
+
+--
+
+An at-rule is a CSS statement beginning with an at sign (@).
+
+They are mainly used in media-queries to make a website "responsive" or to import assets.
+
+--
+
+Example of an at-rule:
+
+```css
+@font-face {
+  font-family: 'aaarghnormal';
+  src: url('Aaargh-webfont.eot');
+  src: url('Aaargh-webfont.eot?#iefix') format('embedded-opentype'),
+       url('Aaargh-webfont.woff') format('woff'),
+       url('Aaargh-webfont.ttf') format('truetype'),
+       url('Aaargh-webfont.svg#aaarghnormal') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+```
+
+---
+
+##Transitions
+
+--
+
+CSS allows you to create nice animations using some properties! The effect is linked to `:hover` as it adds a nice transition when a user **hovers** an element.
+
+You can use it to create a smooth atmosphere.
+
+--
+
+Example
+
+```html
+<div class="box"></div>
+```
+
+```css
+.box {
+  width: 150px;
+  height: 150px;
+  background: red;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-transition: background-color 2s ease-out;
+  -moz-transition: background-color 2s ease-out;
+  -o-transition: background-color 2s ease-out;
+  transition: background-color 2s ease-out;
+}
+
+.box:hover {
+  background-color: green;
+  cursor: pointer;
+}
+
+```
+
+Will create this:
+
+<style type="text/css">
+.box {
+  width: 150px;
+  height: 150px;
+  background: red;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-transition: background-color 2s ease-out;
+  -moz-transition: background-color 2s ease-out;
+  -o-transition: background-color 2s ease-out;
+  transition: background-color 2s ease-out;
+}
+.box:hover {
+  background-color: green;
+  cursor: pointer;
+}
+</style>
+<div class="box" style="text-align:center; display:inline-block;"></div>
+
+--
+
+##Reference
+
+[A nice tutorial by CSS3 = Awesome](http://css3.bradshawenterprises.com/transitions/)
+
+[Animation explanation by Mozilla](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_transitions)
+
+[Our History blog](https://github.com/celine-m-s/wde-site-exemple)
+
+##To go further...
+
+- [The CSS Animation Pocket Guide](http://valhead.com/book)
+
+- [Discover parallax design](https://creativemarket.com/blog/2014/01/15/10-awesome-sites-using-parallax-design) and how to [implement it in your website](https://ihatetomatoes.net/simple-parallax-scrolling-tutorial).
+
+---
+
+##Your turn!
+
+Continue to pimp your page!
+</br>
+</br>
+
+###Level 1
+
+- Make the menu inline;
+
+- Organize the content using `<div>` and `<span>`;
+
+- Add classes and IDs;
+
+- Add margin and padding to some elements;
+
+- Make a link change its color when hovered.
+
+
+--
+
+###Level 2!
+
+- Make a div appear when another element is hovered;
+
+- Make a black box appear, with some text inside, when a parent element is hovered. Add an animation of course!
+
+- Add vertical lines to an element using pseudo-elements.

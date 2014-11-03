@@ -1,0 +1,278 @@
+---
+layout: slide
+---
+
+# CSS
+
+Cascading Style Sheets
+
+Basics
+
+---
+
+## Linking stylesheet to HTML page
+
+```html
+<link rel="stylesheet" type="text/css" href="style.css">
+```
+
+---
+
+## CSS vocabulary
+![]({% asset_path 22-css/CSS-voc.png %})
+
+--
+
+## Example
+
+```css
+h1 {
+  color: purple;
+  background-color: yellow;
+}
+```
+
+
+---
+
+## Colors
+
+--
+
+###Colors (1)
+
+```css
+body {
+  color: orange;
+}
+```
+
+--
+
+### Colors (2)
+
+```css
+body {
+  color: #FFA500; /* hexadecimal color code */
+}
+```
+
+--
+
+## Background color
+
+```css
+body {
+  background-color: black;
+}
+```
+
+--
+
+## Background image
+
+```css
+section {
+  height: 300px;
+  background: url(background-jpg) no-repeat center center;
+  background-size: cover;
+}
+```
+
+---
+
+##Fonts
+
+--
+
+### Font-family
+
+```css
+h1 {
+  font-family: courier, sans-serif;
+}
+```
+
+--
+
+### Font size and line height
+
+```css
+body {
+  font-size: 14px; /* minimum if you want your user to be happy */
+  line-height: 18px; /* minimum 30% higher than your font-size */
+}
+```
+
+--
+
+### Font color
+
+```css
+body {
+  color: red;
+}
+```
+
+--
+
+### Underline
+
+```css
+a {
+  text-decoration: underline;
+}
+```
+
+--
+
+### Center an inline element
+
+```css
+p {
+  text-align: center; /* this will center the content, not the paragraph in itself */
+}
+```
+
+--
+
+### Center a block element
+
+```css
+header {
+  width: 800px;
+  margin: auto;
+}
+```
+
+---
+
+## Sizes
+
+How do we create a square of 190px?
+
+--
+
+## Sizes
+
+```css
+article {
+  height: 190px;
+  width: 190px;
+}
+```
+
+--
+
+## Radius
+
+And how do we create a circle?
+
+--
+
+## Radius
+
+```css
+img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+```
+
+---
+
+##Your turn!
+
+Add some style to your page!
+
+--
+
+- Link the stylesheet in the `<head>` of your HTML page
+
+```html
+<link rel="stylesheet" type="text/css" href="style.css">
+```
+
+- Add some rules to your brand new style.css !
+
+```css
+/* color palette: http://www.colourlovers.com/palette/3092467/Rayman_Forever */
+body{
+  color: #4B3340;
+  background: #C6C3CA;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #832831;
+  font-family: 'Roboto', sans-serif;
+  /* Insert the link in your head! */
+}
+```
+
+--
+
+### How to add a Google font?
+
+--
+
+1 . Go to the [Google Fonts website](https://www.google.com/fonts)
+
+2 . Choose your font and click on "quick use".
+
+![]({% asset_path 22-css/g-fonts.png %})
+
+--
+
+3 . Choose the font weight
+
+![]({% asset_path 22-css/g-fonts-2.png %})
+
+--
+
+4 . Insert the line in your index.html in the `<head>`
+
+![]({% asset_path 22-css/g-fonts-3.png %})
+
+```html
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+</head>
+```
+
+--
+
+5 . Insert the name of your font **where you want to see it** in your **style.css**.
+
+![]({% asset_path 22-css/g-fonts-4.png %})
+
+```css
+h1 {
+  font-family: 'Roboto', sans-serif;
+}
+```
+
+
+---
+
+##Documentation
+
+- [CSS reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

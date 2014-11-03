@@ -1,0 +1,121 @@
+---
+layout: slide
+---
+
+
+![Intro responsive]({% asset_path 40-responsive/responsive-intro.jpg %})
+
+
+---
+
+
+##HTML: a `<meta>` tag
+
+```html
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+```
+
+--
+
+###Viewport
+
+![Viewport]({% asset_path 40-responsive/viewport-2.png %})
+
+--
+
+###Viewport
+
+![Viewport 2]({% asset_path 40-responsive/responsive-width.png %})
+
+---
+
+##CSS: media-queries (at-rule)
+
+--
+
+##Targeting usages
+
+```css
+@media all {
+  h1 {
+    font-size: 20px; /*this will be applied everywhere*/
+  }
+}
+
+@media print {
+  h1 {
+    font-size: 20px;  /*when printing the page*/
+  }
+}
+
+@media screen {
+  h1 {
+    font-size: 20px;  /*when displayed in a device*/
+  }
+}
+
+```
+
+--
+
+###Targeting viewport widths
+
+
+```css
+@media (max-width:320px) {  /*small mobile*/
+  h4 {
+    background-color: red;
+  }
+}
+@media (min-width:321px) and (max-width:959px) {  /*tablet*/
+  h4 {
+    background-color: green; 
+  }
+}
+@media (min-width:960px) and (max-width:1599px) {  /*desktop*/
+  h4 {
+    background-color: blue;
+  }
+}
+@media (min-width:1600px) {  /*desktop and tv*/
+  h4 {
+    background-color: yellow;
+  }
+}
+```
+
+[Try it](http://jsfiddle.net/CelineMartinetSanchez/gjkqdkf3/)
+
+---
+
+##Tool
+
+###Viewport Resizer
+
+[![Viewport Resizer]({% asset_path 40-responsive/viewport-resizer.png %})](http://lab.maltewassermann.com/viewport-resizer/)
+
+---
+
+## Your turn
+
+Make the font size of your h1 reduce when displayed on a mobile.
+
+---
+
+##Resources
+
+- [Logic in Media Queries](http://css-tricks.com/logic-in-media-queries/)
+
+- [Media Queries showcase](http://mediaqueri.es/)
+
+- [Understanding the viewport](http://frugihoyi.wordpress.com/2013/04/20/optimizing-webpages-for-mobile-devices-part-1-the-viewport-meta-tag)
+
+- [The first article about responsive design](http://alistapart.com/article/responsive-web-design)
+
+--
+
+##Credits
+
+- [Intro image](http://www.hangar17.com/en/responsive-webdesign)

@@ -1,0 +1,414 @@
+---
+layout: slide
+---
+
+![]({% asset_path 40-bootstrap/bootstrap.png %})
+
+--
+
+## CSS classes
+
+- Elementary CSS (typos, images, buttons, forms)
+- Advanced components (navbar, panels)
+- Javascript animation (dropdown, modal,..)
+
+--
+
+## Grid System
+
+![]({% asset_path 40-bootstrap/bootstrap-grid-intro.png %})
+
+---
+
+## Implementation
+
+Everything starts with a [nice boilerplate](https://github.com/celine-m-s/bootstrap-boilerplate/blob/gh-pages/index.html)
+
+---
+
+## CSS classes
+
+--
+
+## Elementary CSS
+
+http://getbootstrap.com/css/
+
+--
+
+### Typos (alignment)
+
+![]({% asset_path 40-bootstrap/bootstrap-texts.png %})
+
+--
+
+### Typos (list-inline)
+
+```html
+<ul class="list-inline">
+  <!--Your list-->
+</ul>
+```
+
+![]({% asset_path 40-bootstrap/list-inline-footer.png %})
+
+--
+
+### Buttons
+
+![]({% asset_path 40-bootstrap/bootstrap-buttons.png %})
+
+```html
+<a class="btn">Default</a>
+<a class="btn btn-primary">Primary</a>
+<a class="btn btn-success">Success</a>
+<a class="btn btn-info">Info</a>
+```
+
+--
+
+### Images
+
+![]({% asset_path 40-bootstrap/bootstrap-images.png %})
+
+--
+
+###Responsive images
+
+```html
+<img src="..." class="img-responsive" alt="Responsive image">
+```
+
+--
+
+### Forms
+
+Ex: `.form-inline`, `.form-group`, `.form-control`
+
+```html
+<form class="form-inline" role="form">
+  <div class="form-group">
+    <label for="mail">Email</label>
+    <input type="email" class="form-control" id="mail" placeholder="Enter email">
+    <input type="submit" value="Sign in" class="btn btn-primary">
+  </div>
+</form>
+```
+
+![]({% asset_path 40-bootstrap/bootstrap-inline-form.png %})
+
+--
+
+###Quick floats
+
+```html
+<div class="pull-left">...</div>
+<div class="pull-right">...</div>
+<div class="clearfix">...</div> <!-- same as the clear property -->
+```
+
+--
+
+###Showing and hiding content
+
+```html
+<div class="show">...</div>
+<div class="hidden">...</div>
+```
+
+--
+
+###Showing and hiding depending on devices sizes
+
+![Devices size]({% asset_path 40-bootstrap/showing-responsive.png %})
+
+--
+
+## Look in the doc !
+
+http://getbootstrap.com/css/
+
+---
+
+## Bootstrap grid
+
+![]({% asset_path 40-bootstrap/bootstrap-grid-intro.png %})
+
+
+--
+
+## Definition
+
+Bootstrap includes a **responsive, mobile first** fluid **grid** system that appropriately scales up to **12 columns** as the **device** size increases.
+
+--
+
+## Responsive
+
+![]({% asset_path 40-bootstrap/bootstrap-responsive.png %})
+
+
+--
+
+## Mobile-first
+
+![]({% asset_path 40-bootstrap/bootstrap-mobile-first.png %})
+
+--
+
+## How it works?
+
+--
+
+## Container first
+
+```html
+<div class="container">
+
+  <!--Define a container-->
+
+</div>
+```
+
+![]({% asset_path 40-bootstrap/bootstrap-container.png %})
+
+--
+
+## Then insert a rows (a line)
+
+```html
+<div class="container">
+
+  <div class="row">
+    <!-- First row -->
+  </div>
+
+</div>
+```
+
+![]({% asset_path 40-bootstrap/bootstrap-row-1.png %})
+
+--
+
+## Then insert columns
+
+```html
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-1">
+      First column
+    </div> <!-- end col-md-1 -->
+    <div class="col-md-1">
+      Second column
+    </div> <!-- end col-md-1 -->
+    <div class="col-md-1">
+      Third column
+    </div> <!-- end col-md-1 -->
+    ...
+    <div class="col-md-1">
+      Twelfth column
+    </div> <!-- end col-md-1 -->
+  </div>
+
+</div>
+```
+
+![]({% asset_path 40-bootstrap/bootstrap-row-2.png %})
+
+--
+
+## What's in the row ?
+
+```html
+<div class="col-xs-6">
+</div>
+```
+
+- **col**: because it fits a number of columns
+- **xs**: screen width
+- **6**: number of columns taken by the block (**max 12**)
+
+--
+
+## Media
+
+- **xs**: Extra small devices (Phones < 768px)
+- **sm**: Small devices (Tablets > 768px)
+- **md**: Medium devices (> 992px)
+- **lg**: Large devices (Desktops > 1200px)
+
+--
+
+## Example (2 columns)
+
+![]({% asset_path 40-bootstrap/bootstrap-2-on-all.png %})
+
+--
+
+## Code
+
+```html
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-6">
+      <img src="placeholder.png">
+    </div> <!-- end col-md-6 -->
+
+    <div class="col-md-6">
+       <p>Lorem ipsum</p>
+    </div> <!-- end col-md-6 -->
+
+  </div> <!-- end row -->
+</div> <!-- end container -->
+```
+
+--
+
+## Mobile first
+
+- if you just give the `.col-xs` classes
+- it will apply on all larger screens
+
+--
+
+## Can we offset a block ?
+
+![]({% asset_path 40-bootstrap/bootstrap-offset.png %})
+
+--
+
+## Yes we can
+
+```html
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-2 ">
+      <img src="placeholder.png">
+    </div> <!-- end col-md-offsed-2 -->
+    <div class="col-md-4">
+      <p>Lorem ipsum</p>
+    </div> <!-- end col-md-4 -->
+  </div> <!-- end row -->
+</div> <!-- end container -->
+```
+
+--
+
+![]({% asset_path 40-bootstrap/bootstrap-offset-2.png %})
+
+--
+
+## Grid best practices
+
+- **Don't touch at the grid (container, row, col)**
+- For styling, place div **around the container** or **inside the `col`**
+
+
+```html
+<!--example-->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4">
+        <div id="social-links">
+          <!--your social links-->
+        </div>
+      </div>
+      <div class="col-xs-8">
+        <p>You rock</p>
+      </div>
+    </div>
+  </div>
+</footer>
+```
+
+--
+
+## Grid best practices
+
+- **Once again, don't touch at the grid :)**
+
+### And above all, enjoy!
+
+--
+
+##Have a look at [the doc](http://getbootstrap.com/css/#grid).
+
+---
+
+##Overriding Bootstrap
+
+--
+
+### What to over-ride ?
+
+- buttons
+- navbar (tomorrow)
+- typos
+- ...
+
+<br>
+
+Never over-ride the grid system!
+
+--
+
+### Buttons
+
+```css
+/* style.css */
+
+/* How to override the default Bootstrap colors */
+
+.btn-primary {
+  background-color: #1abc9c;
+  border-color: #1abc9c;
+}
+
+.btn-primary:hover {
+  background-color: #16a085;
+  border-color: #16a085;
+}
+```
+
+--
+
+###Important ideas
+
+- Your style **after** Bootstrap in the `<head>`
+- Add new classes OR over-ride Bootstrap classes
+- You have to be **more specific than Bootstrap with your CSS selectors**
+
+---
+
+##Your turn!
+
+Implement Bootstrap in your website:
+
+- Add the good lines using [our boilerplate](https://github.com/celine-m-s/bootstrap-boilerplate/blob/gh-pages/index.html)
+
+- Make the images responsive using the right class.
+
+- Make the page responsive using the Bootstrap grid. Add minimum a row and 3 columns with some content inside.
+
+--
+
+###Level 2!
+
+- Add a form
+
+- Show some content only when displayed on a mobile (and not on desktop).
+
+---
+
+##References
+
+- [The doc, of course](http://getbootstrap.com)
+
+###Other useful libraries
+
+- [Uikit](http://getuikit.com)
+
+- [Foundation](http://foundation.zurb.com/)

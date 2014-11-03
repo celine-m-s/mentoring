@@ -1,0 +1,69 @@
+# Site settings
+title: Mentorat Laurence Vaissiere
+email: celine.martinet.sanchez@gmail.com
+description: "Mentorat"
+#url: https://celine-m-s.github.io
+baseurl: '/mentoring/laurence-vaissiere'
+# url: "http://yourdomain.com"
+
+permalink: pretty
+
+# Conversion
+markdown: kramdown
+highlighter: pygments
+lsi: false
+excerpt_separator: "\n\n"
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  use_coderay: false
+
+assets:
+  baseurl: http://celine-m-s.github.io/telecom/assets
+  js_compressor: uglifier
+  sources:
+    - _assets/images
+    - _assets/javascripts
+    - _assets/stylesheets
+    - _assets/files
+    - _vendors
+
+collections:
+  slides:
+    output: true
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: slide
+      reveal:
+        controls: true
+        progress: true
+        slideNumber: false
+        history: false
+        keyboard: true
+        overview: true
+        center: true
+        touch: true
+        loop: false
+        rtl: false
+        fragments: true
+        embedded: false
+        autoSlide: 0
+        autoSlideStoppable: true
+        mouseWheel: false
+        hideAddressBar: true
+        previewLinks: false
+        transition: linear
+        transitionSpeed: default
+        backgroundTransition: default
+        viewDistance: 3
+        parallaxBackgroundImage:
+        parallaxBackgroundSize:
+        theme: moon

@@ -1,0 +1,47 @@
+---
+layout: slide
+---
+
+##Installing Wordpress
+
+---
+
+###Download Wordpress
+
+[![]({% asset_path 72-admin-interface/download-wordpress.png %})](https://wordpress.org/download)
+
+Current version: 4.0
+
+---
+
+- Put the Wordpress folder somewhere useful
+
+- Open MAMP / XAMP
+
+- MAC: Select the wordpress folder (preferences > click on the folder and select the 'wordpress' folder).
+
+- WINDOWS: the 'wordpress' folder needs to be inside your 'htdocs' folder (C:/htdocs).
+
+- Run the servers
+
+---
+
+##Initializing the database
+
+- Open a browser and go to **'localhost:8888/MAMP'** or **'localhost/xamp'**
+
+- Click on 'PHPmyadmin'
+
+- Create a new database called 'wordpress'
+
+- Return to **'localhost:8888'** (or **'localhost'**)
+
+- Follow the instructions to create a Configuration File (this is the famous Wordpress 5-minute install)
+
+  - data base name: wordpress
+
+  - username and password: root (if MAC), empty (if Windows)
+
+  - host: localhost
+
+  - table prefix: wp_ (change it for security reasons: 2 or 3 letters followed by _)

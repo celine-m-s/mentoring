@@ -1,0 +1,61 @@
+chapters:
+  - name: "Introduction"
+    folder: 00-intro
+    lectures: 
+      - name: "Digital Interfaces: key concepts"
+        file: "00-digital-interfaces"
+      - name: "How to create a website?"
+        file: "01-create-website"
+      - name: "Prototyping"
+        file: "02-prototyping"
+      - name: "Designing"
+        file: 03-introduction-wd
+      - name: "Colors"
+        file: 04-colors
+      - name: "Typefaces"
+        file: 05-typos
+      - name: "Bonus: audio-visual content"
+        file: 06-pictures
+  - name: "Creating a static website"
+    folder: 01-static-website
+    lectures:
+      - name: "www introduction"
+        file: 20-intro-www
+      - name: "HTML5"
+        file: 21-html
+      - name: "Git & Github"
+        file: 23-github
+      - name: "CSS3: basics"
+        file: "22-css"
+      - name: "CSS3: advanced"
+        file: 30-advanced-css
+      - name: "Responsive websites"
+        file: 40-responsive
+      - name: "Bootstrap CSS"
+        file: 41-bootstrap
+      - name: "Bootstrap components"
+        file: 50-bootstrap-components
+      - name: "Bootstrap JS components"
+        file: 60-bootstrap-js
+      - name: "Going live with Githbub"
+        file: 60-gh-pages
+  - name: "WordPress"
+    folder: 02-wordpress
+    lectures:
+      - name: "Introduction to CMS"
+        file: "70-intro-cms"
+      - name: "Introduction to WordPress"
+        file: 70-general-introduction
+      - name: "Wordpress admin interface"
+        file: 72-admin-interface
+      - name: "Bonus: installing Wordpress locally"
+        file: 120-wp-local
+      - name: "Bonus: going live with Wordpress"
+        file: 120-going-live
+  - name: "Going Further"
+    folder: 03-going-further
+    lectures: 
+      - name: "Final report"
+        file: 51-report
+      - name: "Going further"
+        file: 52-going-further

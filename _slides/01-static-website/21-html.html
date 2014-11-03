@@ -1,0 +1,334 @@
+---
+layout: slide
+---
+
+![HTML 5]({% asset_path 20-intro-www/html5-logo.png %})
+
+It's a **markup** language.
+
+To design and animate elements of your page, **you have to tag them first**
+
+
+---
+
+## HTML Skeleton
+
+```html
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+<!-- end of file -->
+```
+
+--
+
+## HTML Skeleton
+
+```html
+<!DOCTYPE html>
+<html>
+
+
+
+  <!-- your html document goes here -->
+
+
+
+</html>
+
+<!-- end of file -->
+```
+
+- **Tips**: Use **⌘⇧V** on Mac or **Ctr⇧V** on Windows to paste & indent in Sublime.
+
+--
+
+## HTML Skeleton
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <!-- Intelligence (meta-data) -->
+
+  </head>
+  <body>
+
+    <!-- Things to display in the page -->
+
+  </body>
+</html>
+
+<!-- end of file -->
+```
+
+--
+
+## HTML Skeleton
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello world</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <!-- Things to display in the page -->
+  </body>
+</html>
+
+<!-- end of file -->
+```
+
+--
+
+## HTML Skeleton
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello world</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Hello buddies!</h1>
+  </body>
+</html>
+
+<!-- end of file -->
+```
+
+---
+
+## Element syntax
+
+![]({% asset_path 21-html/element-syntax.png %})
+
+--
+
+## Example
+
+```html
+<a href="http://www.google.com" target="_blank">
+  Google
+</a>
+```
+
+Result: <a href="http://www.google.com" target="_blank">Google</a>
+
+### Quizz:
+
+- What is the element name?
+- What is the element content?
+- What are the 2 attributes (name and value)?
+
+--
+
+## Titles
+
+```html
+<h1>[...]</h1>  <!-- Only one per page! SEO important -->
+
+<h2>[...]</h2>
+<h3>[...]</h3>
+<h4>[...]</h4>
+<h5>[...]</h5>
+<h6>[...]</h6>
+```
+
+--
+
+## Paragraphs
+
+```html
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+  Veritatis laboriosam mollitia autem at ab omnis iure quis
+  asperiores inventore eos nam aut iusto officiis deserunt
+  nihil, sequi tempore impedit quae?
+</p>
+```
+
+--
+
+## Emphasize
+
+```html
+<p>
+  You can emphasize <em>some words</em>,
+  and even <strong>more if needed</strong>.
+</p>
+```
+
+--
+
+## Lists
+
+```html
+<h2>Shopping List</h2>
+<ul>
+  <li>Milk</li>
+  <li>Butter</li>
+</ul>
+
+<h2>World Cup 2014</h2>
+<ol>
+  <li>Germany</li>
+  <li>Argentina</li>
+  <li>Netherlands</li>
+  <li>Brazil</li>
+</ol>
+```
+
+--
+
+## Images
+
+```html
+<img src="logo.png" alt="Google logo">
+```
+
+---
+
+## Organizing a page with HTML5
+
+![HTML5 Tags]({% asset_path 21-html/html5-tags.png %})
+
+--
+
+## Header and navbar
+
+```html
+<header>
+  <h1>Some very important title</h1>
+  <nav>
+    <ul>
+      <li>One line</li>
+      <li>Another line</li>
+    </ul>
+  </nav>
+</header>
+```
+
+--
+
+## Section
+
+```html
+<section>
+  <h2>Title of my section</h2>
+  <p>An important part of your page.</p>
+</section>
+```
+
+--
+
+## Article
+
+```html
+<article>
+  <h3>Article title</h3>
+  <img src="image" alt="some description">
+  <p>Some description</p>
+</article>
+```
+
+--
+
+## Aside
+
+```html
+<aside>
+  <p>This is a sidebar!</p>
+</aside>
+```
+
+--
+
+## Footer
+
+```html
+<footer>
+  <p>Copyright <a href="http://www.c-m-s.co">Céline Martinet Sanchez</a>2014</p>
+</footer>
+```
+
+---
+
+##Inline vs Block
+
+--
+
+There is 2 main kinds of tags: blocks and inline elements.
+
+- blocks: they typically are formatted with a line break before and after the element (thereby creating a stand-alone block of content).
+
+- inline: can appear within block-level or other inline elements. They may contain only data and other inline elements. Online elements don't begin with a new line.
+
+--
+
+###Examples of block elements
+
+`<article>`, `<aside>`, `<p>`, `<header>`, `<h1>`, ...
+
+[See the full list](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements)
+
+--
+
+###Example of inline elements
+
+`<a>`, `<b>`, `<img>`, `<button>`, ...
+
+[See the full list](https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elemente)
+
+---
+
+
+## Your turn!
+
+Create your own one-page website.
+
+Here are some clues:
+
+- Create a new project (using Github app), and create your first **index.html** inside.
+- Add some intelligence (head).
+- Organize your page with a menu (a list), different sections and a footer.
+- You may want to add a title, subtitles, pictures, paragraphs, videos, ....
+
+Bonus: have a look at the [Mozilla Labs](https://mozillalabs.com/en-US) website. Inspect the page and read the source code.
+
+---
+
+## Tools
+
+- Logos: 
+
+  - [The Noun Project](http://thenounproject.com)
+
+  - [Creative Market](https://creativemarket.com/)
+
+- Icons:
+
+  - [Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/)
+
+---
+
+## Documentation
+
+### Main
+- [Good practices and a nice reminder](http://codeguide.co/)
+
+### Secondary
+- [HTML5 elements quick list](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/HTML5_element_list)
+- [HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)

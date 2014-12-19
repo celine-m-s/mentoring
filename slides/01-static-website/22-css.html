@@ -1,0 +1,568 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/theme/moon.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/lib/css/zenburn.css">
+     <link rel="stylesheet" href="http://celine-m-s.github.io/mentoring/assets/reveal-custom-f6b7bd51ee5e7779846ca430161b3e2f.css">
+    <script>
+      // If the query includes 'print-pdf' we'll use the PDF print sheet
+      document.write( '<link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="state-background"></div>
+      
+      <div class="slides">
+        <section data-markdown data-separator="^\n---\n$" data-vertical="^\n--\n$">
+          <script type="text/template">
+            # CSS
+
+Cascading Style Sheets
+
+Basics
+
+---
+
+## Linking stylesheet to HTML page
+
+```html
+<link rel="stylesheet" type="text/css" href="style.css">
+```
+
+---
+
+## CSS vocabulary
+![](http://celine-m-s.github.io/mentoring/assets/22-css/CSS-voc-ced8b58ad2426a9930931b4be1571873.png)
+
+--
+
+## Example
+
+```css
+h1 {
+  color: purple;
+  background-color: yellow;
+}
+```
+
+
+---
+
+## Colors
+
+--
+
+###Colors (1)
+
+```css
+body {
+  color: orange;
+}
+```
+
+--
+
+### Colors (2)
+
+```css
+body {
+  color: #FFA500; /* hexadecimal color code */
+}
+```
+
+--
+
+## Background color
+
+```css
+body {
+  background-color: black;
+}
+```
+
+--
+
+## Background image
+
+```css
+section {
+  height: 300px;
+  background: url(background-jpg) no-repeat center center;
+  background-size: cover;
+}
+```
+
+---
+
+##Fonts
+
+--
+
+### Font-family
+
+```css
+h1 {
+  font-family: courier, sans-serif;
+}
+```
+
+--
+
+### Font size and line height
+
+```css
+body {
+  font-size: 14px; /* minimum if you want your user to be happy */
+  line-height: 18px; /* minimum 30% higher than your font-size */
+}
+```
+
+--
+
+### Font color
+
+```css
+body {
+  color: red;
+}
+```
+
+--
+
+### Underline
+
+```css
+a {
+  text-decoration: underline;
+}
+```
+
+--
+
+### Center an inline element
+
+```css
+p {
+  text-align: center; /* this will center the content, not the paragraph in itself */
+}
+```
+
+--
+
+### Center a block element
+
+```css
+header {
+  width: 800px;
+  margin: auto;
+}
+```
+
+---
+
+## Sizes
+
+How do we create a square of 190px?
+
+--
+
+## Sizes
+
+```css
+article {
+  height: 190px;
+  width: 190px;
+}
+```
+
+--
+
+## Radius
+
+And how do we create a circle?
+
+--
+
+## Radius
+
+```css
+img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+```
+
+---
+
+## Div and span
+
+--
+
+A `<div>` is an "anonymous" box. We use it to gather content together and to target html block elements.
+
+--
+
+Example: The Starter Kit
+
+[![](http://celine-m-s.github.io/mentoring/assets/22-css/starterkit-f4cfd34c54a33f77d85d7cc90b3533af.png)](http://www.thestarterkit.info/)
+
+--
+
+###"But what if I want to target an inline element?"
+
+--
+
+Here comes the `<span>`! It will let you target inline elements and give them some extra style.
+</br>
+</br>
+
+Example: 
+
+[HTML]
+```html
+<p>Hello Rayman! I'm a <span>red</span> word!</p>
+```
+
+[CSS]
+```css
+span {
+  color: red;
+}
+```
+
+Will do that: 
+<p>Hello Rayman! I'm a <span style="color:red;">red</span> word!</p>
+
+---
+
+##Class and ID
+
+--
+
+## How do you style only the avatar?
+
+```html
+<header>
+  <img src="avatar.png">
+  <h2>Latest pictures</h2>
+  <ul>
+    <li><img src="picture1.png"></li>
+    <li><img src="picture2.png"></li>
+    <li><img src="picture3.png"></li>
+  </ul>
+</header>
+```
+
+```css
+img {
+  border-radius: 50%;
+}
+```
+
+--
+
+## Name your tag with `id`
+
+```html
+<header>
+  <img src="avatar.png" id="avatar">
+  <h2>Latest pictures</h2>
+  <ul>
+    <li><img src="picture1.png"></li>
+    <li><img src="picture2.png"></li>
+    <li><img src="picture3.png"></li>
+  </ul>
+</header>
+```
+
+```css
+#avatar {
+  border-radius: 50%;
+}
+```
+
+--
+
+## What about the latest pictures?
+
+```html
+<header>
+  <img src="avatar.png" id="avatar">
+  <h2>Latest pictures</h2>
+  <ul>
+    <li><img src="picture1.png"></li>
+    <li><img src="picture2.png"></li>
+    <li><img src="picture3.png"></li>
+  </ul>
+</header>
+```
+
+```css
+#avatar {
+  border-radius: 50%;
+}
+```
+
+--
+
+## Name your tags with `class`
+
+```html
+<header>
+  <img src="avatar.png" id="avatar">
+  <h2>Latest pictures</h2>
+  <ul>
+    <li><img src="picture1.png" class="latest-pict"></li>
+    <li><img src="picture2.png" class="latest-pict"></li>
+    <li><img src="picture3.png" class="latest-pict"></li>
+  </ul>
+</header>
+```
+
+```css
+/* begins with a # because it targets an id */
+#avatar {
+  border-radius: 50%;
+}
+
+/* begins with a . because it targets a class */
+.latest-pict {
+  border: 1px solid black;
+  box-shadow: 3px 3px 5px 6px #ccc;
+}
+```
+
+--
+
+## id or class?
+
+- An id is unique in your page. For example: a logo, a list item, a form, ...
+
+- A class is recurrent. Use it for elements that you will find several times: pictures, headings, ...
+
+--
+
+## Combine classes and ids
+
+```html
+<header>
+  <img src="avatar.png" id="avatar" class="rounded">
+  <h2>Latest pictures</h2>
+  <ul>
+    <li><img src="picture1.png" class="latest-pict"></li>
+    <li><img src="picture2.png" class="latest-pict"></li>
+    <li><img src="picture3.png" class="latest-pict"></li>
+  </ul>
+</header>
+```
+
+```css
+/* begins with a # because it targets an id */
+#avatar {
+  width: 50px;
+  height: 50px;
+}
+
+/* begins with a . because it targets a class */
+.latest-pict {
+  border: 1px solid black;
+  box-shadow: 3px 3px 5px 6px #ccc;
+}
+
+.rounded {
+  border-radius: 50%;
+}
+```
+
+--
+
+## Combine classes
+
+```html
+<header>
+  <img src="avatar.png" id="avatar" class="rounded">
+  <h2>Latest pictures</h2>
+  <ul>
+    <li><img src="picture1.png" class="latest-pict rounded"></li>
+    <li><img src="picture2.png" class="latest-pict rounded"></li>
+    <li><img src="picture3.png" class="latest-pict rounded"></li>
+  </ul>
+</header>
+```
+
+```css
+/* begins with a # because it targets an id */
+#avatar {
+  width: 50px;
+  height: 50px;
+}
+
+/* begins with a . because it targets a class */
+.latest-pict {
+  border: 1px solid black;
+  box-shadow: 3px 3px 5px 6px #ccc;
+}
+
+.rounded {
+  border-radius: 50%;
+}
+```
+
+---
+
+##Your turn!
+
+Add some style to your page!
+
+--
+
+- Link the stylesheet in the `<head>` of your HTML page
+
+```html
+<link rel="stylesheet" type="text/css" href="style.css">
+```
+
+- Add some rules to your brand new style.css !
+
+```css
+/* color palette: http://www.colourlovers.com/palette/3092467/Rayman_Forever */
+body{
+  color: #4B3340;
+  background: #C6C3CA;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #832831;
+  font-family: 'Roboto', sans-serif;
+  /* Insert the link in your head! */
+}
+```
+
+--
+
+### How to add a Google font?
+
+--
+
+1 . Go to the [Google Fonts website](https://www.google.com/fonts)
+
+2 . Choose your font and click on "quick use".
+
+![](http://celine-m-s.github.io/mentoring/assets/22-css/g-fonts-4306ef8751ee56017c4a05215a20fc8d.png)
+
+--
+
+3 . Choose the font weight
+
+![](http://celine-m-s.github.io/mentoring/assets/22-css/g-fonts-2-eea7cddb3c1c7687e6c4a53d8b45886e.png)
+
+--
+
+4 . Insert the line in your index.html in the `<head>`
+
+![](http://celine-m-s.github.io/mentoring/assets/22-css/g-fonts-3-c511fbf9469ad74592f46d11659fbeab.png)
+
+```html
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+</head>
+```
+
+--
+
+5 . Insert the name of your font **where you want to see it** in your **style.css**.
+
+![](http://celine-m-s.github.io/mentoring/assets/22-css/g-fonts-4-ef10b6fc481bf8d08011e6b2ce4791bf.png)
+
+```css
+h1 {
+  font-family: 'Roboto', sans-serif;
+}
+```
+
+
+---
+
+##Documentation
+
+- [CSS reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </script>
+        </section>
+      </div>
+
+      <div class="progress"><span></span></div>
+<!--       <div class="print">
+        <a href="/slides/01-static-website/22-css.html?print-pdf">PDF-friendly</a>
+      </div> -->
+    </div>
+
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/lib/js/head.min.js"></script>
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      history: false,
+      keyboard: true,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      fragments: true,
+      embedded: false,
+      autoSlide: 0,
+      autoSlideStoppable: true,
+      mouseWheel: false,
+      hideAddressBar: true,
+      previewLinks: false,
+      transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/linear(2d)
+      transitionSpeed: 'default',
+      backgroundTransition: 'default',
+      viewDistance: 3,
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } }
+      ]
+
+      });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/theme/moon.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/lib/css/zenburn.css">
+     <link rel="stylesheet" href="http://celine-m-s.github.io/mentoring/assets/reveal-custom-f6b7bd51ee5e7779846ca430161b3e2f.css">
+    <script>
+      // If the query includes 'print-pdf' we'll use the PDF print sheet
+      document.write( '<link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="state-background"></div>
+      
+      <div class="slides">
+        <section data-markdown data-separator="^\n---\n$" data-vertical="^\n--\n$">
+          <script type="text/template">
+            # Concepts
+
+---
+
+## Interface
+
+--
+
+## Interface
+
+A point where two systems, subjects, organizations, etc. meet and interact. *(Oxford Dictionary)*
+
+---
+
+## Digital
+
+--
+
+## Digital
+
+Involving or relating to the use of computer technology: the digital revolution. *(Oxford Dictionary)*
+
+---
+
+## Digital Interface
+
+--
+
+## Digital Interface
+
+Device or program enabling a user to communicate with a computer.
+
+---
+
+## Mobile application (mobile app)
+
+--
+
+## Mobile application (mobile app)
+
+Application meant to be run on a mobile device (smartphone, tablet).<br \>
+[Languages](http://en.wikipedia.org/wiki/Mobile_application_development): Java, C, C++ (Android), Objective-C (iOS), HTML, CSS, Javascript
+
+---
+
+## Server
+
+--
+
+## Server
+
+Servers are computer programs running to serve the requests of other programs, the clients (your browsers). Servers accept requests from the client and delivers some data, like webpages.
+
+---
+
+## Software
+
+--
+
+## Software
+
+Application that can be run on a computer and performs specific operations.
+
+---
+
+## Hardware
+
+--
+
+## Hardware
+
+The machines, wiring, and other physical components of a computer or other electronic system.
+
+---
+
+## Website
+
+--
+
+## Website
+
+Web pages served from a single web domain. You can access it using the Internet.<br \>
+Two different websites: static and dynamic ones.
+
+---
+
+## Web application (web app)
+
+--
+
+## Web application (web app)
+
+Application meant to be run on a browser (like Firefox or Chrome). Information displayed to the user depends on its action.<br \>
+Languages: Ruby, Python, PHP, Javascript, HTML, CSS.
+
+---
+
+## User Interface (UI)
+
+--
+
+## User Interface (UI)
+
+This is how your user interacts with your application. 
+
+<ul>
+  <li>Does he know where to click?</li>
+  <li>Does he see how to do that action?</li>
+  <li>...</li>
+</ul>
+
+[Curated articles on UI](https://medium.com/ux-user-interface/trending)
+
+---
+
+## User Experience (UX)
+
+--
+
+## User Experience (UX)
+
+This is how your user uses your product, how he fells about it. 
+
+Many parameters may have an influence on him: 
+
+<ul>
+  <li>your communication,</li>
+  <li>his navigation process, </li>
+  <li>his needs toward your website, </li>
+  <li>...</li>
+</ul>
+
+[How to get started in User Experience](https://medium.com/@DiegoMendes/how-to-get-started-in-user-experience-85ba97a8fbb6)
+
+---
+
+## Design
+
+--
+
+## Design
+
+A plan or drawing produced to show the look and function or workings of a building, garment, or other object before it is made. *(Oxford Dictionary)*
+          </script>
+        </section>
+      </div>
+
+      <div class="progress"><span></span></div>
+<!--       <div class="print">
+        <a href="/slides/00-intro/00-digital-interfaces.html?print-pdf">PDF-friendly</a>
+      </div> -->
+    </div>
+
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/lib/js/head.min.js"></script>
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      history: false,
+      keyboard: true,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      fragments: true,
+      embedded: false,
+      autoSlide: 0,
+      autoSlideStoppable: true,
+      mouseWheel: false,
+      hideAddressBar: true,
+      previewLinks: false,
+      transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/linear(2d)
+      transitionSpeed: 'default',
+      backgroundTransition: 'default',
+      viewDistance: 3,
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } }
+      ]
+
+      });
+
+    </script>
+  </body>
+</html>

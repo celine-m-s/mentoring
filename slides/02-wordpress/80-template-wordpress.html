@@ -1,0 +1,498 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/theme/moon.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/lib/css/zenburn.css">
+     <link rel="stylesheet" href="http://celine-m-s.github.io/mentoring/assets/reveal-custom-f6b7bd51ee5e7779846ca430161b3e2f.css">
+    <script>
+      // If the query includes 'print-pdf' we'll use the PDF print sheet
+      document.write( '<link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="state-background"></div>
+      
+      <div class="slides">
+        <section data-markdown data-separator="^\n---\n$" data-vertical="^\n--\n$">
+          <script type="text/template">
+            ##First steps
+
+--
+
+- drag and drop your file into `wordpress/wp-content/themes`
+
+- rename it (find something nice!)
+
+- open your file in Sublime
+
+--
+
+###style.css
+
+Add your style!
+
+```css
+/*
+Theme Name: My Theme
+Theme URI: http://something.com
+Author: Me, myself and I
+Author URI: http://me-myself-and-i.com
+Description: This is my, being humble, awesome theme.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: light, genius, talented
+*/
+```
+--
+
+##Selecting your theme
+
+- Connect to the administration area
+
+- Under Appearance > Themes, select your theme!
+
+Caution: style.css *must* be located in your website root, otherwise you will have an error message.
+
+---
+
+##Functions.php
+
+--
+
+###What for?
+
+Adds functionnalities to your website. For example: 
+
+- featured images,
+
+- navbars,
+
+- sidebars, 
+
+- redirections, 
+
+- ...
+
+--
+
+###Create it
+
+- Create a functions.php
+
+- Have a look at [this gist](https://github.com/celine-m-s/mon-petit-poney/blob/master/functions.php). What functionnalities do you think it adds?
+
+- Open a php tag at the beginning of functions.php but never close it!
+
+--
+
+###Enable featured images
+
+
+
+```php
+add_theme_support( 'post-thumbnails' );
+```
+
+--
+
+###Add "Read more..." at the end of an excerpt with the post's permalink
+
+```php
+function excerpt_read_more_link($output) {
+  global $post;
+  return $output . '<a href="'. get_permalink($post->ID) . '"> Read more...</a>';
+}
+add_filter('the_excerpt', 'excerpt_read_more_link');
+```
+
+--
+
+###More functions
+
+- [25+ Extremely Useful Tricks for the WordPress Functions File](http://www.wpbeginner.com/wp-tutorials/25-extremely-useful-tricks-for-the-wordpress-functions-file/)
+
+- [WP function me](http://www.wpfunction.me)
+
+- [Understanding functions.php](http://code.tutsplus.com/articles/beginning-with-wordpress-customising-our-sites-functionality-using-functionsphp--wp-32913)
+
+
+
+---
+
+##Building the arch
+
+---
+
+##1 - Header
+
+The header is the first part of your webpage. It contains the `<head>`, the header and the menu.
+
+You already have those information, but now you will have to replace them with template tags. 
+
+--
+
+###Practice
+
+- If you don't have one, create a new file called "header.php"
+
+- Cut and paste the `<head>`, the `<header>` and the `<nav>`.
+
+- Call this file in your index.php using `<?php get_header(); ?>`
+
+--
+
+####`<head>`
+
+```php
+    <head>
+        <meta charset="<?php bloginfo( 'charset' ); ?>">  <!-- instead of UTF-8 -->
+        <title><?php wp_title( '|', true, 'right' ); ?></title>  <!-- instead of your title -->
+        <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?php echo esc_url( get_stylesheet_uri() ); ?>" type="text/css" />  <!-- instead of style.css -->
+        <?php wp_head(); ?>
+    </head>
+```
+
+--
+
+####`<header>`
+
+Information you may find on a header: 
+
+- Title of your blog
+
+- A logo
+
+- Your blog description
+
+Replace them with template tags.
+
+```php
+<h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+<div class="logo"><a href="<?php echo home_url(); ?>"><img src="<?php bloginfo('template_directory'); ?>/images/logo.png"></a></div>
+<h2><a href="<?php echo home_url(); ?>"><?php bloginfo('description'); ?></a></h2>
+
+```
+
+--
+
+####`<nav>`
+
+You can add as many navbars as you wish with WordPress. Just follow the instructions!
+
+1. Sublime > Add some code in functions.php
+</br>
+</br>
+
+*functions.php*
+```php
+function register_my_menus() {
+  register_nav_menus (
+    array(
+    'secondary-nav' => 'Secondary Menu',
+    )
+  );
+}
+
+add_action( 'init', 'register_my_menus' );
+```
+--
+
+####`<nav>`
+
+2- Sublime > Add the menu where you want it to be displayed.
+</br>
+</br>
+*header.php*
+```php
+<nav>
+  <?php
+    wp_nav_menu('secondary-nav');
+  ?>
+</nav>
+
+```
+
+--
+
+####`<nav>`
+
+3- Admin area > Appearance > Menus > Create a new menu > Save it!
+
+![](http://celine-m-s.github.io/mentoring/assets/80-template-wordpress/create-menu-11576e02eead7f7144c5d969e15bd241.png)
+
+
+--
+
+####`<nav>`
+
+</br>
+</br>
+But what if we use a Bootstrap navbar?
+
+[Twittem has the solution!](https://github.com/twittem/wp-bootstrap-navwalker)
+
+--
+
+####A Bootstrap `<nav>`
+
+1. Sublime > Add some code in functions.php
+</br>
+</br>
+
+*functions.php*
+```php
+function register_my_menus() {
+  register_nav_menus (
+    array(
+      'secondary-nav' => 'Secondary Menu',
+      'third-nav' => 'Third Menu',
+    )
+  );
+}
+
+add_action( 'init', 'register_my_menus' );
+
+require_once('wp_bootstrap_navwalker.php');
+```
+--
+
+####A Bootstrap `<nav>`
+
+2 - Download [this file](https://github.com/twittem/wp-bootstrap-navwalker/blob/master/wp_bootstrap_navwalker.php) and place it in your theme.
+
+--
+
+####A Bootstrap `<nav>`
+
+3- Sublime > header.php *Replace* the `div class="collapse navbar-collapse"` by this.
+</br>
+</br>
+*header.php*
+```php
+   <?php
+    wp_nav_menu( array(
+      'menu' => 'third-nav',
+      'theme_location' => 'third-nav',
+      'depth' => 2,
+      'container' => 'div',
+      'container_class' => 'collapse navbar-collapse row',
+      'container_id' => 'bs-example-navbar-collapse-1',
+      'menu_class' => 'nav navbar-nav',
+      'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
+      'walker' => new wp_bootstrap_navwalker())
+    );
+  ?>
+</div><!-- /.container-fluid -->
+```
+
+Anxious? Have a look at [this example](https://github.com/celine-m-s/mon-petit-poney/blob/master/header.php).
+
+
+--
+
+####A Bootstrap `<nav>`
+
+4- Admin area > Appearance > Menus > Create a new menu > Save it!
+
+![](http://celine-m-s.github.io/mentoring/assets/80-template-wordpress/create-menu-11576e02eead7f7144c5d969e15bd241.png)
+
+---
+
+##2- Sidebar
+
+--
+
+###Register a sidebar
+
+1- Sublime > functions.php
+
+```php
+if ( function_exists('register_sidebar') ) {
+  register_sidebar(array(
+    'name' => 'Main Sidebar',
+    'id' => 'main-sidebar',
+    'description' => 'Displayed in my home',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget' => '</div>',
+    'before_title' => '<h4 class="section">',
+    'after_title' => '</h4>',
+  ));
+}
+```
+
+--
+
+2- Add the following to anywhere on your theme you would like the sidebar to appear.
+
+```php
+<ul id="sidebar">
+   <?php dynamic_sidebar( 'Main Sidebar' ); ?>
+</ul>
+``` 
+
+---
+
+##3-Footer
+
+--
+
+Add [`wp_footer()`](http://codex.wordpress.org/Function_Reference/wp_footer) in your footer.php
+
+```php
+<?php
+   /* Always have wp_footer() just before the closing </body>
+    * tag of your theme, or you will break many plugins, which
+    * generally use this hook to reference JavaScript files.
+    */
+    wp_footer();
+?>
+```
+
+--
+
+Have a look at [this footer](https://github.com/celine-m-s/mon-petit-poney/blob/master/footer.php) to see what else you could add.
+
+---
+
+##Learn to debug
+
+--
+
+###Turn on debug info!
+</br>
+</br>
+*wp-config.php*
+
+```php
+define( 'WP_DEBUG', true );
+
+if ( WP_DEBUG ) {
+
+  define( 'SCRIPT_DEBUG', true );
+
+  define( 'WP_DEBUG_LOG', true );
+
+  define( 'WP_DEBUG_DISPLAY', true );
+
+}
+```
+
+---
+
+###Your turn
+
+- Transform the history blog on a template
+
+- Add a functions.php
+
+- [Read this cheat sheet](http://www.trupela.com/wp-content/uploads/2009/11/WordPress-Visual-Cheat-Sheet.pdf). Choose one template tag and add it to your index.php.
+
+--
+
+- Implement the arch
+
+  - Add the required template tags in the `<head>`
+
+  - Add some template tags in the `<header>`
+
+  - Make a dynamic menu using functions.php and the [Bootstrap navbar for Wordpress](https://github.com/twittem/wp-bootstrap-navwalker)
+
+  - Add a footer
+
+---
+
+##Documentation
+
+- [Template tags cheat sheet](http://www.trupela.com/wp-content/uploads/2009/11/WordPress-Visual-Cheat-Sheet.pdf)
+
+- Your new Bible: [the Codex](http://codex.wordpress.org/Theme_Development)
+
+---
+
+##Useful examples
+
+- [A Poney Blog](https://github.com/celine-m-s/mon-petit-poney)
+
+- [An e-commerce blog](https://github.com/celine-m-s/photography)
+
+- [A Fashion Blog](https://github.com/camilleduflot/blogicietailleurs)
+
+---
+
+##To go further
+
+###functions.php
+
+- [A good example](https://github.com/Automattic/_s/blob/master/functions.php)
+
+- [Another good example](https://github.com/roots/roots)
+
+###Debug tool
+
+- [Debug bar](http://wordpress.org/plugins/debug-bar)
+
+###Using Sass with Wordpress
+
+- [Tutorial by Elegant Themes](http://www.elegantthemes.com/blog/tips-tricks/how-to-use-sass-with-wordpress-a-step-by-step-guide)
+          </script>
+        </section>
+      </div>
+
+      <div class="progress"><span></span></div>
+<!--       <div class="print">
+        <a href="/slides/02-wordpress/80-template-wordpress.html?print-pdf">PDF-friendly</a>
+      </div> -->
+    </div>
+
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/lib/js/head.min.js"></script>
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      history: false,
+      keyboard: true,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      fragments: true,
+      embedded: false,
+      autoSlide: 0,
+      autoSlideStoppable: true,
+      mouseWheel: false,
+      hideAddressBar: true,
+      previewLinks: false,
+      transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/linear(2d)
+      transitionSpeed: 'default',
+      backgroundTransition: 'default',
+      viewDistance: 3,
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } }
+      ]
+
+      });
+
+    </script>
+  </body>
+</html>

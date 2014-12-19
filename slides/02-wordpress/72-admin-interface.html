@@ -1,0 +1,267 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/theme/moon.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/lib/css/zenburn.css">
+     <link rel="stylesheet" href="http://celine-m-s.github.io/mentoring/assets/reveal-custom-f6b7bd51ee5e7779846ca430161b3e2f.css">
+    <script>
+      // If the query includes 'print-pdf' we'll use the PDF print sheet
+      document.write( '<link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="state-background"></div>
+      
+      <div class="slides">
+        <section data-markdown data-separator="^\n---\n$" data-vertical="^\n--\n$">
+          <script type="text/template">
+            ##Installing Wordpress
+
+--
+
+###Download Wordpress
+
+[![](http://celine-m-s.github.io/mentoring/assets/72-admin-interface/download-wordpress-5789b4a52448abb3e789ae9a2de8a22a.png)](https://wordpress.org/download)
+
+Current version: 4.0
+
+--
+
+- Put the Wordpress folder somewhere useful
+
+- Open MAMP / XAMP
+
+- MAC: Select the wordpress folder (preferences > click on the folder and select the 'wordpress' folder).
+
+- WINDOWS: the 'wordpress' folder needs to be inside your 'htdocs' folder (C:/xampp/htdocs).
+
+- Run the servers
+
+--
+
+##Initializing the database
+
+- Open a browser and go to **'localhost:8888/MAMP'** or **'localhost/xamp'**
+
+- Click on 'PHPmyadmin'
+
+- Create a new database called 'wordpress'
+
+- Return to **'localhost:8888'** (or **'localhost'**)
+
+- Follow the instructions to create a Configuration File (this is the famous Wordpress 5-minute install)
+
+  - data base name: wordpress
+
+  - username and password: root (if MAC), empty (if Windows)
+
+  - host: localhost
+
+  - table prefix: wp_ (change it for security reasons: 2 or 3 letters followed by _)
+
+---
+
+##Administration Area
+
+--
+
+![](http://celine-m-s.github.io/mentoring/assets/72-admin-interface/wp-dashboard-bf07e3e699445b2567a6abd9532df283.png)
+
+--
+
+##Hint: screen options
+
+![](http://celine-m-s.github.io/mentoring/assets/72-admin-interface/screen-options-4e76ef49659531b3209d754f33e75177.png)
+
+
+--
+
+###Posts
+
+- blog posts list
+
+- Same as articles or news
+
+- You can group your posts by creating "Categories"
+
+--
+
+####Add a new post
+
+- You can either enter html or text on the central zone. This is what will be displayed as a main article.
+
+- Add media: this button helps you add media to your article.
+
+- Preview: you can preview the article to see how it will look like when published.
+
+- Categories: assign a category to your post if needed
+
+- Tags: very helpful for the wordpress search engine
+
+- Featured image: to display an image on the home page or with special formatting.
+
+--
+
+###Media
+
+Lets you download pictures, sounds and videos.
+
+- Make sure to enter the "Alternative Text" (equivalent to the "alt" HTML attribute) for disabled people.
+
+--
+
+###Pages
+
+Here you can create pages that will be displayed in the menu for example (a contact page, ...).
+
+- The admin part of pages is very similar to the articles one. But they don't have the same purpose!
+
+--
+
+###Comments
+
+See all the comments left on your website.
+
+--
+
+###Appearance
+
+Manages your website's appearance.
+
+- Themes: list of available templates. Here you can completey change your website's look!
+
+- Customize: a WYSIWYG useful editor to manage your website's appearance. Available options depend on the chosen theme.
+
+- Widgets: add some useful functionalities to a sidebar.
+
+- Menus: manage your menus. You can either have one or several ones, it depends on your template.
+
+- Editor [only paid versions and wordpress.org]: lets you change the code directly, without having to open a text editor program. 
+
+--
+
+###Users
+
+All users registered on your website.
+
+--
+
+###Tools
+
+Related to maintenance or external sources.
+
+--
+
+##Settings
+
+- "General": site title and general settings
+
+- "Writing": settings related to content creation
+
+- "Reading": settings related to how users read
+
+- "Discussion": settings related to commenting
+
+- "Media": settings related to images and files
+
+- "Permalinks" [only wordpress.org]: manages how your links look.
+
+---
+
+##Your turn!
+
+Play with Wordpress!
+
+- Select the "Twenty Twelve" theme
+
+- Add 3 posts containing pictures, a title, subtitles, bold text and external links. They should also have tags and belong to a category (hint: create 3 different categories).
+
+- Add a contact page and a home page
+
+- Change your settings to display the static home page you create instead of latests posts. (hint: Appearance > Customize)
+
+--
+
+- Remove those widgets from the Main Sidebar: Recent posts, Archives, Meta.
+
+- Add these widgets to the Main Sidebar: RSS and Calendar.
+
+- Create a menu with: 
+  
+  - Home (links to your custom home page)
+
+  - Category 1 (links to a page displaying every post belonging to category 1)
+
+  - Category 2 (links to a page displaying every post belonging to category 1)
+
+  - Category 3 (links to a page displaying every post belonging to category 1)
+
+  - Contact (links to your custom Contact page)
+
+  - Twitter (links to an external Twitter account). It should open a new window (hint: click on "Screen Options on the top right").
+
+---
+
+##Documentation
+
+- The excellent [Wordpress User Manual](https://make.wordpress.org/support/user-manual)
+          </script>
+        </section>
+      </div>
+
+      <div class="progress"><span></span></div>
+<!--       <div class="print">
+        <a href="/slides/02-wordpress/72-admin-interface.html?print-pdf">PDF-friendly</a>
+      </div> -->
+    </div>
+
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/lib/js/head.min.js"></script>
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      history: false,
+      keyboard: true,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      fragments: true,
+      embedded: false,
+      autoSlide: 0,
+      autoSlideStoppable: true,
+      mouseWheel: false,
+      hideAddressBar: true,
+      previewLinks: false,
+      transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/linear(2d)
+      transitionSpeed: 'default',
+      backgroundTransition: 'default',
+      viewDistance: 3,
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } }
+      ]
+
+      });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/theme/moon.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/lib/css/zenburn.css">
+     <link rel="stylesheet" href="http://celine-m-s.github.io/mentoring/assets/reveal-custom-f6b7bd51ee5e7779846ca430161b3e2f.css">
+    <script>
+      // If the query includes 'print-pdf' we'll use the PDF print sheet
+      document.write( '<link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="state-background"></div>
+      
+      <div class="slides">
+        <section data-markdown data-separator="^\n---\n$" data-vertical="^\n--\n$">
+          <script type="text/template">
+            ## Knowledge Worker
+
+We create and edit documents (text, images, etc.)
+
+--
+
+## Everyday workflow
+
+1. Create a file
+1. Save it
+1. Edit it
+1. Save it again
+1. etc.
+
+--
+
+## Manual Version Control
+
+![](http://celine-m-s.github.io/mentoring/assets/23-github/manual_version_control-e1d85879a608a8951cdaf59d244c7a3b.png)
+
+--
+
+## Can we automate this?
+
+For each document version, we need to know:
+
+1. **When** the file was modified
+1. **What** changed
+1. **Why** it was modified
+1. **Who** did the change
+
+--
+
+## Welcome
+
+![](http://celine-m-s.github.io/mentoring/assets/23-github/git_logo-511e03a60a2e6c734398241e0d9ad6ec.png)
+
+---
+
+## What about Github? 
+It's **the** social media for developers. They can share their code, comment, see a project's history, ... and so much more!
+
+---
+
+## To begin with Github...
+you need an account! 
+
+Jump on the amazing [Github website](https://github.com/join)
+
+Caution: **no** white space, capital letters or special characters in the *username*.
+
+![](http://celine-m-s.github.io/mentoring/assets/23-github/join-github-fc94e233b80bd9f9a67d108d87f33b85.png)
+
+---
+
+## Github for Windows or Mac
+### Setup
+
+![](http://celine-m-s.github.io/mentoring/assets/23-github/app-gh-1-76d79e532fa10a07a2483127ef9893b7.png)  
+
+--
+
+![](http://celine-m-s.github.io/mentoring/assets/23-github/app-gh-2-292367da9d34ef7f0ca79d18e01e6cd0.png)
+
+--
+
+###  Interface
+
+![](http://celine-m-s.github.io/mentoring/assets/23-github/gh-for-mac-interface-7c4cc88c4684ea8c054042794761d3f8.png)
+
+---
+
+### Everyday workflow
+
+1. Change something on your file, test, re-test, ...
+1. Okay with it? Open the Github app.
+1. Find your file, **write a description** and click on *Commit and Sync*
+1. Back to work! Test, re-test, ...
+
+---
+
+## Your turn !
+
+Push your first website!
+
+---
+
+## Documentation
+
+### Main: 
+- [github.com](http://www.github.com), of course
+
+### To go further: 
+- A [useful tutorial](https://www.atlassian.com/git/tutorial/git-basics) explaining main git actions using the command line tool.
+          </script>
+        </section>
+      </div>
+
+      <div class="progress"><span></span></div>
+<!--       <div class="print">
+        <a href="/slides/01-static-website/23-github.html?print-pdf">PDF-friendly</a>
+      </div> -->
+    </div>
+
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/lib/js/head.min.js"></script>
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      history: false,
+      keyboard: true,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      fragments: true,
+      embedded: false,
+      autoSlide: 0,
+      autoSlideStoppable: true,
+      mouseWheel: false,
+      hideAddressBar: true,
+      previewLinks: false,
+      transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/linear(2d)
+      transitionSpeed: 'default',
+      backgroundTransition: 'default',
+      viewDistance: 3,
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } }
+      ]
+
+      });
+
+    </script>
+  </body>
+</html>

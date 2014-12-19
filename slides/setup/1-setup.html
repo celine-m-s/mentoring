@@ -1,0 +1,391 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/theme/moon.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/lib/css/zenburn.css">
+     <link rel="stylesheet" href="http://celine-m-s.github.io/mentoring/assets/reveal-custom-f6b7bd51ee5e7779846ca430161b3e2f.css">
+    <script>
+      // If the query includes 'print-pdf' we'll use the PDF print sheet
+      document.write( '<link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="state-background"></div>
+      
+      <div class="slides">
+        <section data-markdown data-separator="^\n---\n$" data-vertical="^\n--\n$">
+          <script type="text/template">
+            <p>–</p>
+
+<h2 id="grid-system">Grid System</h2>
+
+<p>–</p>
+
+<h2 id="css-classes">CSS classes</h2>
+
+<ul>
+  <li>Elementary CSS (typos, images, buttons, forms)</li>
+  <li>Advanced components (navbar, panels)</li>
+  <li>Javascript animation (dropdown, modal,..)</li>
+</ul>
+
+<hr />
+
+<h2 id="everything-starts-with-a-nice-boilerplate">Everything starts with a nice boilerplate!</h2>
+
+<p>https://github.com/lewagon/bootstrap-boilerplate</p>
+
+<hr />
+
+<h2 id="css-classes-1">CSS classes</h2>
+
+<p>–</p>
+
+<h2 id="elementary-css">Elementary CSS</h2>
+
+<p>http://getbootstrap.com/css/</p>
+
+<p>–</p>
+
+<h3 id="typos-alignment">Typos (alignment)</h3>
+
+<p>–</p>
+
+<h3 id="typos-list-inline">Typos (list-inline)</h3>
+
+<p><code>html
+&lt;ul class="list-inline"&gt;
+  &lt;!--Your list--&gt;
+&lt;/ul&gt;
+</code></p>
+
+<p>–</p>
+
+<h3 id="buttons">Buttons</h3>
+
+<p><code>html
+&lt;a class="btn"&gt;Default&lt;/a&gt;
+&lt;a class="btn btn-primary"&gt;Primary&lt;/a&gt;
+&lt;a class="btn btn-success"&gt;Success&lt;/a&gt;
+&lt;a class="btn btn-info"&gt;Info&lt;/a&gt;
+</code></p>
+
+<p>–</p>
+
+<h3 id="images">Images</h3>
+
+<p>–</p>
+
+<h3 id="forms">Forms</h3>
+
+<p>Ex: <code>.form-inline</code>, <code>.form-group</code>, <code>.form-control</code></p>
+
+<p><code>html
+&lt;form class="form-inline" role="form"&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label for="mail"&gt;Email&lt;/label&gt;
+    &lt;input type="email" class="form-control" id="mail" placeholder="Enter email"&gt;
+    &lt;input type="submit" value="Sign in" class="btn btn-primary"&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+</code></p>
+
+<p>–</p>
+
+<h2 id="look-in-the-doc-">Look in the doc !</h2>
+
+<p>http://getbootstrap.com/css/</p>
+
+<p>–</p>
+
+<h2 id="advanced-components">Advanced components</h2>
+
+<p>http://getbootstrap.com/components/</p>
+
+<p>–</p>
+
+<h3 id="navbar">Navbar</h3>
+
+<p>–</p>
+
+<h3 id="labels">Labels</h3>
+
+<p>–</p>
+
+<p>Panels, alerts, badges, many more, read the doc</p>
+
+<p>http://getbootstrap.com/components/</p>
+
+<hr />
+
+<h2 id="bootstrap-grid">Bootstrap grid</h2>
+
+<p>–</p>
+
+<h2 id="definition">Definition</h2>
+
+<p>Bootstrap includes a <strong>responsive, mobile first</strong> fluid <strong>grid</strong> system that appropriately scales up to <strong>12 columns</strong> as the <strong>device</strong> size increases.</p>
+
+<p>–</p>
+
+<h2 id="responsive">Responsive</h2>
+
+<p>–</p>
+
+<h2 id="mobile-first">Mobile-first</h2>
+
+<p>–</p>
+
+<h2 id="how-it-works">How it works?</h2>
+
+<p>–</p>
+
+<h2 id="container-first">Container first</h2>
+
+<p>```html
+&lt;div class="container"&gt;</p>
+
+<p><!--Define a container--></p>
+
+<p>&lt;/div&gt;
+```</p>
+
+<p>–</p>
+
+<h2 id="then-insert-rows">Then insert rows</h2>
+
+<p>```html
+&lt;div class="container"&gt;</p>
+
+<div class="row">
+    <!-- First row -->
+  </div>
+
+<p>&lt;/div&gt;
+```</p>
+
+<p>–</p>
+
+<p>```html
+&lt;div class="container"&gt;</p>
+
+<div class="row">
+    <!-- First row -->
+  </div>
+
+<div class="row">
+    <!-- Second row -->
+  </div>
+
+<p>&lt;/div&gt;
+```</p>
+
+<p>–</p>
+
+<p>```html
+&lt;div class="container"&gt;</p>
+
+<div class="row">
+    <!-- First row -->
+  </div>
+
+<div class="row">
+    <!-- Second row -->
+  </div>
+
+<div class="row">
+    <!-- Third row -->
+  </div>
+
+<p>&lt;/div&gt;
+```</p>
+
+<p>–</p>
+
+<h2 id="whats-in-the-row-">What’s in the row ?</h2>
+
+<p><code>html
+&lt;div class="col-xs-6"&gt;
+&lt;/div&gt;
+</code></p>
+
+<ul>
+  <li><strong>col</strong>: because it fits a number of columns</li>
+  <li><strong>xs</strong>: screen width</li>
+  <li><strong>6</strong>: number of columns taken by the block (<strong>max 12</strong>)</li>
+</ul>
+
+<p>–</p>
+
+<h2 id="media">Media</h2>
+
+<ul>
+  <li><strong>xs</strong>: Extra small devices (Phones &lt; 768px)</li>
+  <li><strong>sm</strong>: Small devices (Tablets &gt; 768px)</li>
+  <li><strong>md</strong>: Medium devices (&gt; 992px)</li>
+  <li><strong>lg</strong>: Large devices (Desktops &gt; 1200px)</li>
+</ul>
+
+<p>–
+## Example (2 columns)</p>
+
+<p>–</p>
+
+<h2 id="code">Code</h2>
+
+<p>```html
+&lt;div class="container"&gt;
+  &lt;div class="row"&gt;</p>
+
+<pre><code>&lt;div class="col-xs-6"&gt;
+&lt;/div&gt;
+
+&lt;div class="col-xs-6"&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>&lt;/div&gt;
+&lt;/div&gt;
+```</p>
+
+<p>–</p>
+
+<h2 id="mobile-first-1">Mobile first</h2>
+
+<ul>
+  <li>if you just give the <code>.col-xs</code> classes</li>
+  <li>it will apply on all larger screens</li>
+</ul>
+
+<p>–
+## Now what happens ?
+```html
+&lt;div class="container"&gt;
+  &lt;div class="row"&gt;</p>
+
+<pre><code>&lt;div class="col-xs-6"&gt;
+&lt;/div&gt;
+
+&lt;div class="col-xs-6"&gt;
+&lt;/div&gt;
+
+&lt;div class="col-xs-6"&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>&lt;/div&gt;
+&lt;/div&gt;
+```</p>
+
+<p>–
+## Just return on new line</p>
+
+<p>–</p>
+
+<h2 id="responsive-example">Responsive example</h2>
+<p>We want 4 blocks for tablets or larger screens</p>
+
+<p>–
+We want 2 rows for mobiles with 2 blocks on each row</p>
+
+<p>–</p>
+
+<h2 id="how-will-you-do-">How will you do ?</h2>
+
+<p>–</p>
+
+<h2 id="code-1">Code</h2>
+
+<p><code>html
+&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-xs-6 col-sm-3"&gt;&lt;/div&gt;
+    &lt;div class="col-xs-6 col-sm-3"&gt;&lt;/div&gt;
+    &lt;div class="col-xs-6 col-sm-3"&gt;&lt;/div&gt;
+    &lt;div class="col-xs-6 col-sm-3"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></p>
+
+<p>Yeah baby !</p>
+
+<p>–</p>
+
+<h2 id="offsetting-blocks">Offsetting blocks</h2>
+
+<p>Can we offset a block ?</p>
+
+<p>–</p>
+
+<h2 id="yes-we-can">Yes we can</h2>
+
+<p><code>html
+&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-sm-offset-4 col-sm-4"&gt;
+      &lt;!-- Le contenu de la div centrée --&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></p>
+
+          </script>
+        </section>
+      </div>
+
+      <div class="progress"><span></span></div>
+<!--       <div class="print">
+        <a href="/slides/setup/1-setup.html?print-pdf">PDF-friendly</a>
+      </div> -->
+    </div>
+
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/lib/js/head.min.js"></script>
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      history: false,
+      keyboard: true,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      fragments: true,
+      embedded: false,
+      autoSlide: 0,
+      autoSlideStoppable: true,
+      mouseWheel: false,
+      hideAddressBar: true,
+      previewLinks: false,
+      transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/linear(2d)
+      transitionSpeed: 'default',
+      backgroundTransition: 'default',
+      viewDistance: 3,
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } }
+      ]
+
+      });
+
+    </script>
+  </body>
+</html>

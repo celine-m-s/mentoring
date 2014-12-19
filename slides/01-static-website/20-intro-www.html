@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/theme/moon.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/lib/css/zenburn.css">
+     <link rel="stylesheet" href="http://celine-m-s.github.io/mentoring/assets/reveal-custom-f6b7bd51ee5e7779846ca430161b3e2f.css">
+    <script>
+      // If the query includes 'print-pdf' we'll use the PDF print sheet
+      document.write( '<link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="state-background"></div>
+      
+      <div class="slides">
+        <section data-markdown data-separator="^\n---\n$" data-vertical="^\n--\n$">
+          <script type="text/template">
+            ## What's in a web page?
+
+We use 3 technologies
+
+--
+
+![](http://celine-m-s.github.io/mentoring/assets/20-intro-www/html5-logo-513a0fd162ce1af39ed6d8f35953fabb.png)
+![](http://celine-m-s.github.io/mentoring/assets/20-intro-www/css3-logo-d451d247e910d7ade2c463936cc624b9.png)
+![](http://celine-m-s.github.io/mentoring/assets/20-intro-www/js-logo-4d4a20fc01d40cd1d36ed37358708271.png)
+
+--
+
+## Content : HTML
+
+![](http://celine-m-s.github.io/mentoring/assets/20-intro-www/html5-logo-513a0fd162ce1af39ed6d8f35953fabb.png)
+
+--
+
+## Appearance : CSS
+
+![](http://celine-m-s.github.io/mentoring/assets/20-intro-www/css3-logo-d451d247e910d7ade2c463936cc624b9.png)
+
+--
+
+## Dynamic Behavior : Javascript
+
+![](http://celine-m-s.github.io/mentoring/assets/20-intro-www/js-logo-4d4a20fc01d40cd1d36ed37358708271.png)
+
+
+--> Let's do a demo with [Twitter](http://www.twitter.com)
+
+---
+
+## How does a website work?
+
+--
+
+![](http://celine-m-s.github.io/mentoring/assets/20-intro-www/client-52c54ec52d918d1c66880785e4011743.png)
+
+--
+
+![](http://celine-m-s.github.io/mentoring/assets/20-intro-www/client-with-browser-66fb1fc5498eb4795688c922226517bc.png)
+
+--
+
+![](http://celine-m-s.github.io/mentoring/assets/20-intro-www/client-request-abb6b00246efb8ce776be3b0501c61f8.png)
+
+--
+
+![](http://celine-m-s.github.io/mentoring/assets/20-intro-www/client-response-d5dd6e7a17900355d19e3a150412bec4.png)
+
+--
+
+![](http://celine-m-s.github.io/mentoring/assets/20-intro-www/client-full-response-bb2f0037b0bda2cdc5a482c458719e04.png)
+
+--
+
+## Twitter static-style
+
+### 1 billion users = 1 billion profile pages?
+--
+## Twitter dynamic-style
+
+### Of course not
+### 1 billion users = 1 profile template
+
+--
+
+![](http://celine-m-s.github.io/mentoring/assets/20-intro-www/client-server-pagebuild-1f50c356eb0b1fd948a4f1d0e4d17ae6.png)
+
+--
+
+![](http://celine-m-s.github.io/mentoring/assets/20-intro-www/client-server-database-2e1231d5b60db99907a92050f2a7849d.png)
+
+---
+
+##Let's begin with HTML now!
+
+          </script>
+        </section>
+      </div>
+
+      <div class="progress"><span></span></div>
+<!--       <div class="print">
+        <a href="/slides/01-static-website/20-intro-www.html?print-pdf">PDF-friendly</a>
+      </div> -->
+    </div>
+
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/lib/js/head.min.js"></script>
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      history: false,
+      keyboard: true,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      fragments: true,
+      embedded: false,
+      autoSlide: 0,
+      autoSlideStoppable: true,
+      mouseWheel: false,
+      hideAddressBar: true,
+      previewLinks: false,
+      transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/linear(2d)
+      transitionSpeed: 'default',
+      backgroundTransition: 'default',
+      viewDistance: 3,
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } }
+      ]
+
+      });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,487 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/theme/moon.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/lib/css/zenburn.css">
+     <link rel="stylesheet" href="http://celine-m-s.github.io/mentoring/assets/reveal-custom-f6b7bd51ee5e7779846ca430161b3e2f.css">
+    <script>
+      // If the query includes 'print-pdf' we'll use the PDF print sheet
+      document.write( '<link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="state-background"></div>
+      
+      <div class="slides">
+        <section data-markdown data-separator="^\n---\n$" data-vertical="^\n--\n$">
+          <script type="text/template">
+            ![](http://celine-m-s.github.io/mentoring/assets/40-bootstrap/bootstrap-87de4fb23e7c0e26e6b90ff71995eb63.png)
+
+--
+
+## CSS classes
+
+- Elementary CSS (typos, images, buttons, forms)
+- Advanced components (navbar, panels)
+- Javascript animation (dropdown, modal,..)
+
+--
+
+## Grid System
+
+![](http://celine-m-s.github.io/mentoring/assets/40-bootstrap/bootstrap-grid-intro-60b5a1924bf2ac3d3b2787fc58febe5d.png)
+
+---
+
+## Implementation
+
+Everything starts with a [nice boilerplate](https://github.com/celine-m-s/bootstrap-boilerplate/blob/gh-pages/index.html)
+
+---
+
+## CSS classes
+
+--
+
+## Elementary CSS
+
+http://getbootstrap.com/css/
+
+--
+
+### Typos (alignment)
+
+![](http://celine-m-s.github.io/mentoring/assets/40-bootstrap/bootstrap-texts-059c62abfeb2209ccf654a491ef50155.png)
+
+--
+
+### Typos (list-inline)
+
+```html
+<ul class="list-inline">
+  <!--Your list-->
+</ul>
+```
+
+![](http://celine-m-s.github.io/mentoring/assets/40-bootstrap/list-inline-footer-d809f0121dc6dd5db9ae2b0d836610b5.png)
+
+--
+
+### Buttons
+
+![](http://celine-m-s.github.io/mentoring/assets/40-bootstrap/bootstrap-buttons-1b432d4a14760a47572f241e442190f3.png)
+
+```html
+<a class="btn">Default</a>
+<a class="btn btn-primary">Primary</a>
+<a class="btn btn-success">Success</a>
+<a class="btn btn-info">Info</a>
+```
+
+--
+
+### Images
+
+![](http://celine-m-s.github.io/mentoring/assets/40-bootstrap/bootstrap-images-f1ee5501f705491dd77f3ac4258d85d9.png)
+
+--
+
+###Responsive images
+
+```html
+<img src="..." class="img-responsive" alt="Responsive image">
+```
+
+--
+
+### Forms
+
+Ex: `.form-inline`, `.form-group`, `.form-control`
+
+```html
+<form class="form-inline" role="form">
+  <div class="form-group">
+    <label for="mail">Email</label>
+    <input type="email" class="form-control" id="mail" placeholder="Enter email">
+    <input type="submit" value="Sign in" class="btn btn-primary">
+  </div>
+</form>
+```
+
+![](http://celine-m-s.github.io/mentoring/assets/40-bootstrap/bootstrap-inline-form-9c8a584156c5e9891a6f5985dc848ee1.png)
+
+--
+
+###Quick floats
+
+```html
+<div class="pull-left">...</div>
+<div class="pull-right">...</div>
+<div class="clearfix">...</div> <!-- same as the clear property -->
+```
+
+--
+
+###Showing and hiding content
+
+```html
+<div class="show">...</div>
+<div class="hidden">...</div>
+```
+
+--
+
+###Showing and hiding depending on devices sizes
+
+![Devices size](http://celine-m-s.github.io/mentoring/assets/40-bootstrap/showing-responsive-bcdb04ca27d473adc2c13b9295415573.png)
+
+--
+
+## Look in the doc !
+
+http://getbootstrap.com/css/
+
+---
+
+## Bootstrap grid
+
+![](http://celine-m-s.github.io/mentoring/assets/40-bootstrap/bootstrap-grid-intro-60b5a1924bf2ac3d3b2787fc58febe5d.png)
+
+
+--
+
+## Definition
+
+Bootstrap includes a **responsive, mobile first** fluid **grid** system that appropriately scales up to **12 columns** as the **device** size increases.
+
+--
+
+## Responsive
+
+![](http://celine-m-s.github.io/mentoring/assets/40-bootstrap/bootstrap-responsive-c42067707cc17d81b3f3da81ff3dff12.png)
+
+
+--
+
+## Mobile-first
+
+![](http://celine-m-s.github.io/mentoring/assets/40-bootstrap/bootstrap-mobile-first-504a1d6a64528271b423a0ee4e38c4ad.png)
+
+--
+
+## How does it works?
+
+--
+
+## Container first
+
+```html
+<div class="container">
+
+  <!--Define a container-->
+
+</div>
+```
+
+![](http://celine-m-s.github.io/mentoring/assets/40-bootstrap/bootstrap-container-1707433416383c29e629aafe07b790fe.png)
+
+--
+
+## Then insert a row (a line)
+
+```html
+<div class="container">
+
+  <div class="row">
+    <!-- First row -->
+  </div>
+
+</div>
+```
+
+![](http://celine-m-s.github.io/mentoring/assets/40-bootstrap/bootstrap-row-1-eafea7cdf9c104ca1ca3cf89291ce8ba.png)
+
+--
+
+## Then insert columns
+
+```html
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-1">
+      First column
+    </div> <!-- end col-md-1 -->
+    <div class="col-md-1">
+      Second column
+    </div> <!-- end col-md-1 -->
+    <div class="col-md-1">
+      Third column
+    </div> <!-- end col-md-1 -->
+    ...
+    <div class="col-md-1">
+      Twelfth column
+    </div> <!-- end col-md-1 -->
+  </div>
+
+</div>
+```
+
+![](http://celine-m-s.github.io/mentoring/assets/40-bootstrap/bootstrap-row-2-0c59dbbfe4c2b8f7bbaf4a8c349eec9d.png)
+
+--
+
+## What's in a row ?
+
+```html
+<div class="col-xs-6">
+</div>
+```
+
+- **col**: because it fits a number of columns
+- **xs**: screen width
+- **6**: number of columns taken by the block (**max 12**)
+
+--
+
+## Media
+
+- **xs**: Extra small devices (Phones < 768px)
+- **sm**: Small devices (Tablets > 768px)
+- **md**: Medium devices (> 992px)
+- **lg**: Large devices (Desktops > 1200px)
+
+--
+
+## Example (2 columns)
+
+![](http://celine-m-s.github.io/mentoring/assets/40-bootstrap/bootstrap-2-on-all-90c20f5f616708c4163fb078a30a3109.png)
+
+--
+
+## Code
+
+```html
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-6">
+      <img src="placeholder.png">
+    </div> <!-- end col-md-6 -->
+
+    <div class="col-md-6">
+       <p>Lorem ipsum</p>
+    </div> <!-- end col-md-6 -->
+
+  </div> <!-- end row -->
+</div> <!-- end container -->
+```
+
+--
+
+## Mobile first
+
+- if you just give the `.col-xs` classes
+- it will apply on all larger screens
+
+--
+
+## Can we offset a block ?
+
+![](http://celine-m-s.github.io/mentoring/assets/40-bootstrap/bootstrap-offset-1c29fb59e12a39174b5e30ad64a909aa.png)
+
+--
+
+## Yes we can
+
+```html
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-2 ">
+      <img src="placeholder.png">
+    </div> <!-- end col-md-offsed-2 -->
+    <div class="col-md-4">
+      <p>Lorem ipsum</p>
+    </div> <!-- end col-md-4 -->
+  </div> <!-- end row -->
+</div> <!-- end container -->
+```
+
+--
+
+![](http://celine-m-s.github.io/mentoring/assets/40-bootstrap/bootstrap-offset-2-d0396b8de11870d319cde58302394648.png)
+
+--
+
+## Grid best practices
+
+- **Don't touch at the grid (container, row, col)**
+- For styling, place div **around the container** or **inside the `col`**
+
+
+```html
+<!--example-->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4">
+        <div id="social-links">
+          <!--your social links-->
+        </div>
+      </div>
+      <div class="col-xs-8">
+        <p>You rock</p>
+      </div>
+    </div>
+  </div>
+</footer>
+```
+
+--
+
+## Grid best practices
+
+- **Once again, don't touch at the grid :)**
+
+### And above all, enjoy!
+
+--
+
+##Have a look at [the doc](http://getbootstrap.com/css/#grid).
+
+---
+
+##Overriding Bootstrap
+
+--
+
+### What to override ?
+
+- buttons
+- navbar (next course)
+- typos
+- ...
+
+<br>
+
+If you need to override the grid system, do it with caution!
+
+--
+
+### Buttons
+
+```css
+/* style.css */
+
+/* How to override the default Bootstrap colors */
+
+.btn-primary {
+  background-color: #1abc9c;
+  border-color: #1abc9c;
+}
+
+.btn-primary:hover {
+  background-color: #16a085;
+  border-color: #16a085;
+}
+```
+
+--
+
+###Important ideas
+
+- Your style **after** Bootstrap in the `<head>`
+- Add new classes OR override Bootstrap classes
+- You have to be **more specific than Bootstrap with your CSS selectors**
+
+---
+
+##Your turn!
+
+Implement Bootstrap in your website:
+
+- Add the good lines using [our boilerplate](https://github.com/celine-m-s/bootstrap-boilerplate/blob/gh-pages/index.html)
+
+- Make the images responsive using the right class.
+
+- Make the page responsive using the Bootstrap grid. Add minimum a row and 3 columns with some content inside.
+
+--
+
+###Level 2!
+
+- Add a form
+
+- Show some content only when displayed on mobile (and not on desktop).
+
+---
+
+##References
+
+- [The doc, of course](http://getbootstrap.com)
+
+###Other useful libraries
+
+- [Uikit](http://getuikit.com)
+
+- [Foundation](http://foundation.zurb.com/)
+          </script>
+        </section>
+      </div>
+
+      <div class="progress"><span></span></div>
+<!--       <div class="print">
+        <a href="/slides/01-static-website/41-bootstrap.html?print-pdf">PDF-friendly</a>
+      </div> -->
+    </div>
+
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/lib/js/head.min.js"></script>
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      history: false,
+      keyboard: true,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      fragments: true,
+      embedded: false,
+      autoSlide: 0,
+      autoSlideStoppable: true,
+      mouseWheel: false,
+      hideAddressBar: true,
+      previewLinks: false,
+      transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/linear(2d)
+      transitionSpeed: 'default',
+      backgroundTransition: 'default',
+      viewDistance: 3,
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } }
+      ]
+
+      });
+
+    </script>
+  </body>
+</html>

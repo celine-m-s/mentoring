@@ -1,0 +1,415 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/theme/moon.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/lib/css/zenburn.css">
+     <link rel="stylesheet" href="http://celine-m-s.github.io/mentoring/assets/reveal-custom-f6b7bd51ee5e7779846ca430161b3e2f.css">
+    <script>
+      // If the query includes 'print-pdf' we'll use the PDF print sheet
+      document.write( '<link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="state-background"></div>
+      
+      <div class="slides">
+        <section data-markdown data-separator="^\n---\n$" data-vertical="^\n--\n$">
+          <script type="text/template">
+            ##Going Live with Gandi!
+
+--
+
+###Install [Migrate DB](https://wordpress.org/plugins/wp-migrate-db)
+
+--
+
+###Buy a domain name
+
+![Buying a domain name](http://celine-m-s.github.io/mentoring/assets/120-going-live/1-nom-de-domaine-7a4651d0e0e03a5eb10db2c65381e23e.png)
+
+In [Gandi](http://www.gandi.net), choose a domain name and buy it. You should receive a confirmation e-mail with a promotional code.
+
+--
+
+###Buy a server
+
+50% off if you already have a Gandi domain name.
+
+![Simple hosting](http://celine-m-s.github.io/mentoring/assets/120-going-live/2-simple-hosting-c7f54bee956a9f39fa024b8eca0971d0.png)
+
+
+--
+
+###Buy a server (2)
+
+Caution: in the "website address" box, put the domain name you purchased **with the www. before**!
+
+![Achat espace serveur](http://celine-m-s.github.io/mentoring/assets/120-going-live/2-simple-hosting-2-a1784497e307a29bb0cc70a7478fe1f5.png)
+
+
+--
+
+###Buy a server (3)
+
+![Achat espace serveur](http://celine-m-s.github.io/mentoring/assets/120-going-live/3-simple-hosting-params-6cee180b2df455ded10006e8a0ebc819.png)
+
+--
+
+Enter you promotional code!
+
+![Achat espace serveur](http://celine-m-s.github.io/mentoring/assets/120-going-live/4-simple-hosting-validation-4faa0940c978058d22cf2fc003bb6ef9.png)
+
+--
+
+###Link domain name and server
+
+Connect to Gandi > Simple Hosting
+
+![Instances list](http://celine-m-s.github.io/mentoring/assets/120-going-live/5-instances-1806cd03f0ce0389313d0a8dca1a3f90.png)
+
+Click on your instance name.
+
+--
+
+###Link domain name and server (2)
+
+Go down until "Sites" and hover the small "i".
+
+Copy characters after the CNAME (*example: gpaas0.dc0.gandi.net. - Copy the last dot too!*)
+
+[![CNAME](http://celine-m-s.github.io/mentoring/assets/120-going-live/6-CNAME-7647566a353cdea50e35e4ed316f290b.png)](http://en.wikipedia.org/wiki/CNAME_record)
+--
+
+###[CNAME](http://en.wikipedia.org/wiki/CNAME_record)
+
+Click on "domain name" > your domain name
+
+![Your domain name list](http://celine-m-s.github.io/mentoring/assets/120-going-live/7-domain-list-9a2eea2b18074c43ca7ef222a74114a0.png)
+
+--
+
+###CNAME (2)
+
+Go down until "Zone files". Click on "edit zone".
+
+**If you don't have "edit zone": click on "create a copy". Rename and validate.**
+
+--
+
+###CNAME (3)
+
+Create a new version to edit it.
+
+![Nouvelle version de zone](http://celine-m-s.github.io/mentoring/assets/120-going-live/9-versions-3ab6899ab17d8f4c0cebfae542b54f9e.png)
+
+![Le CNAME de votre dns doit correspondre au CNAME de votre instance](http://celine-m-s.github.io/mentoring/assets/120-going-live/10-CNAME-instance-dns-58142d2ff5d2ed02a0593a01e917b798.png)
+
+--
+
+###CNAME (4)
+
+Activate the version.
+
+![Activate the zone](http://celine-m-s.github.io/mentoring/assets/120-going-live/11-activation-zone-24244cdf3608c9172f5ed1588f4ffedf.png)
+
+--
+
+###File transfer
+
+Use an FTP client like [Filezilla for MAC](http://www.clubic.com/telecharger-fiche192766-filezilla.html) or [for PC](http://www.01net.com/telecharger/windows/Internet/ftp/fiches/17966.html).
+
+Click on "Site Manager" and "New website".
+
+--
+
+![Le gestionnaire de sites de FileZilla](http://celine-m-s.github.io/mentoring/assets/120-going-live/12-gestionnaire-de-sites-83a1c0ac72f433f6474169c4665331a1.png)
+
+  - Host: sftp.dc0.gpaas.net
+  - Protocol : SFTP
+  - Authentification type: normal
+  - Login: your login **Simple Hosting**
+  - Password: your password
+
+And connect!
+
+--
+
+###File transfer (2)
+Forgot your password? Go to Simple Hosting > your instance > Access > Data base > hover on "i".
+
+![Retrouvez vos informations dans les détails de votre instance Gandi.](http://celine-m-s.github.io/mentoring/assets/120-going-live/13-access-bdd-54f9b5170314e43e9dd3a771c6691044.png)
+
+--
+
+###Filetransfer (3)
+
+![Retrouvez vos informations dans les détails de votre instance Gandi.](http://celine-m-s.github.io/mentoring/assets/120-going-live/14-filezilla-c262ab10d94958a55704ec7c4eb0f04d.png)
+
+--
+
+##Export a local database
+
+Connect to your local website (start MAMP or XAMP). Click on Tools > Migrate DB.
+
+![Exportez votre base de données avec Migrate DB.](http://celine-m-s.github.io/mentoring/assets/120-going-live/15-migrate-db-e4d367a99678de6c70402aa11a8fa8e3.png)
+
+--
+
+##Export a local database
+
+- New Address: your domain name **starting with http://www.**
+- New file path: go to FileZilla
+
+![Trouvez le chemin dans FileZilla](http://celine-m-s.github.io/mentoring/assets/120-going-live/16-filezilla-migratedb-d200ad559b70a1e8d263f839b9c098ab.png)
+
+--
+
+##Import in a distant server
+
+- Connect to Gandi: Simple Hosting > your instance > Access > Database > Connection.
+  - First login window: your login and your password
+
+  - Second login window: login is "root" and password is empty.
+
+Create a new database (its name should be **the same** as the database you've just exported). 
+
+![Création d'une nouvelle base de données sur votre serveur distant.](http://celine-m-s.github.io/mentoring/assets/120-going-live/17-phpmyadmin-distant-589ed534655de116150c7d52b7163e21.png)
+
+--
+
+##Import in a distant server (2)
+
+Click on "import". Choose the database you've just exported on your computer.
+
+![Importation de votre base de données](http://celine-m-s.github.io/mentoring/assets/120-going-live/18-importation-bdd-810a999ace3e325612ff96b9002d9485.png)
+
+--
+
+##Changing "wp-config.php"
+
+*Only for MAC users and people with an error message*
+
+Open "wp-config.php" in FileZilla (right click > Edit). 
+
+![Editez wp-config.php](http://celine-m-s.github.io/mentoring/assets/120-going-live/19-wp-config-php-6fa1b831d74521fd1edc19fa626ff6c2.png)
+
+--
+
+![Editez wp-config.php](http://celine-m-s.github.io/mentoring/assets/120-going-live/19-wp-config-php-2-bda64300dff7d28ef6db1f8dcee98287.png)
+
+--
+
+##Changing "wp-config.php"
+
+Go to "MySQL settings" and delete "root" at the right hand of `DB_PASSWORD`. 
+
+![Editez wp-config.php](http://celine-m-s.github.io/mentoring/assets/120-going-live/20-modif-wpconfig-88e34831adf0fd63134e697756d4c0fc.png)
+
+--
+
+![Editez wp-config.php](http://celine-m-s.github.io/mentoring/assets/120-going-live/21-renvoi-91a46e8c354e6568184caeb7cc829585.png)
+
+--
+
+##Last check
+
+###Admin interface connection
+Check that you have all your data...
+</br>
+</br>
+###Links
+If you experience link problems, go to Tools > Permalinks. Change the settings and save.
+
+---
+
+##Developing for WP
+
+--
+
+###Child themes
+
+Child themes are a safe way to modify a theme without breacking it. You should create a new (empty) folder and call it `themename-child.
+
+--
+
+###Creating a child theme
+
+Create a new `style.css` in this empty folder.
+
+*style.css*
+
+```css
+/*
+ Theme Name:     Foxy Child Theme
+ Theme URI:        http://www.elegantthemes.com/gallery/foxy/
+ Description:         Foxy Child Theme
+ Author:                Elegant Themes
+ Author URI:         http://www.elegantthemes.com
+ Template:            Foxy
+ Version:              1.0.0
+*/
+ 
+@import url("../Foxy/style.css");
+ 
+/* =Theme customization starts here
+------------------------------------------------------- */
+```
+
+--
+
+###Creating a child theme
+
+You can over-write properties like this:
+
+```css
+/*
+ Theme Name:     Foxy Child Theme
+ Theme URI:      http://www.elegantthemes.com/gallery/foxy/
+ Description:    Foxy Child Theme
+ Author:         Elegant Themes
+ Author URI:     http://www.elegantthemes.com
+ Template:       Foxy
+ Version:        1.0.0
+*/
+ 
+@import url("../Foxy/style.css");
+ 
+/* =Theme customization starts here
+------------------------------------------------------- */
+ 
+.et-price-sale { color: #5bbc26; font-weight: 300;}
+```
+--
+
+###Important
+
+- You MUST have "Theme name" and "Template" fields in your style.css.
+
+- Your folder should be called "themename-child".
+
+--
+
+###Creating a child theme
+
+- Editing `functions.php`: create a new `functions.php` file and add the following code:
+
+```php
+<?php
+ 
+// Your php code goes here
+ 
+?>
+```
+--
+
+###Creating a child theme
+
+- Editing other template files
+
+![Folder structure](http://celine-m-s.github.io/mentoring/assets/120-going-live/folder-structure-233785623789eccb3dc2682ea9c0da26.png)
+
+--
+
+###Premium themes
+
+- Woocommerce: [WooThemes](www.woothemes.com)
+
+- [Elegant Themes](http://www.elegantthemes.com)
+
+- [StudioPress](http://www.studiopress.com)
+
+- [Official Listing](http://wordpress.org/themes/commercial)
+
+- [Creative Market](https://creativemarket.com)
+
+- [Envato Market](http://themeforest.net)
+
+---
+
+##Your turn
+
+Just follow the instructions!
+
+---
+
+##Documentation
+
+- Child themes: 
+
+  - [A tutorial on Elegant Themes](http://www.elegantthemes.com/blog/resources/wordpress-child-theme-tutorial)
+
+  - [Wordpress Codex Resource](http://codex.wordpress.org/Child_Themes)
+
+- Wordpress Boilerplates:
+
+  - [_s](http://underscores.me)
+
+  - [Roots](http://roots.io)
+
+  - [Genesis Framework](http://my.studiopress.com/themes/genesis)
+
+  - [Hybrid core](http://themehybrid.com/hybrid-core)
+
+  - [Thematic](http://themeshaper.com/thematic)
+
+- Going live: [a french tutorial](http://celine-m-s.github.io/cours-wde/2014/07/08/mise-en-ligne)
+          </script>
+        </section>
+      </div>
+
+      <div class="progress"><span></span></div>
+<!--       <div class="print">
+        <a href="/slides/02-wordpress/120-going-live.html?print-pdf">PDF-friendly</a>
+      </div> -->
+    </div>
+
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/lib/js/head.min.js"></script>
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      history: false,
+      keyboard: true,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      fragments: true,
+      embedded: false,
+      autoSlide: 0,
+      autoSlideStoppable: true,
+      mouseWheel: false,
+      hideAddressBar: true,
+      previewLinks: false,
+      transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/linear(2d)
+      transitionSpeed: 'default',
+      backgroundTransition: 'default',
+      viewDistance: 3,
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } }
+      ]
+
+      });
+
+    </script>
+  </body>
+</html>

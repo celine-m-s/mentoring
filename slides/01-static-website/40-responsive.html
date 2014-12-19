@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/theme/moon.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/lib/css/zenburn.css">
+     <link rel="stylesheet" href="http://celine-m-s.github.io/mentoring/assets/reveal-custom-f6b7bd51ee5e7779846ca430161b3e2f.css">
+    <script>
+      // If the query includes 'print-pdf' we'll use the PDF print sheet
+      document.write( '<link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="state-background"></div>
+      
+      <div class="slides">
+        <section data-markdown data-separator="^\n---\n$" data-vertical="^\n--\n$">
+          <script type="text/template">
+            ![Intro responsive](http://celine-m-s.github.io/mentoring/assets/40-responsive/responsive-intro-375f4e6f0a13c0ef26f9d02030490117.jpg)
+
+
+---
+
+
+##HTML: a `<meta>` tag
+
+```html
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+```
+
+--
+
+###Viewport
+
+![Viewport](http://celine-m-s.github.io/mentoring/assets/40-responsive/viewport-2-d5381d2e6eed1c5e05725f0c3d1e7eca.png)
+
+--
+
+###Viewport
+
+![Viewport 2](http://celine-m-s.github.io/mentoring/assets/40-responsive/responsive-width-58741963b7bc4fc3556639a46dc3653b.png)
+
+---
+
+##CSS: media-queries (at-rule)
+
+--
+
+##Targeting usages
+
+```css
+@media all {
+  h1 {
+    font-size: 20px; /*this will be applied everywhere*/
+  }
+}
+
+@media print {
+  h1 {
+    font-size: 20px;  /*when printing the page*/
+  }
+}
+
+@media screen {
+  h1 {
+    font-size: 20px;  /*when displayed in a device*/
+  }
+}
+
+```
+
+--
+
+###Targeting viewport widths
+
+
+```css
+@media (max-width:320px) {  /*small mobile*/
+  h4 {
+    background-color: red;
+  }
+}
+@media (min-width:321px) and (max-width:959px) {  /*tablet*/
+  h4 {
+    background-color: green; 
+  }
+}
+@media (min-width:960px) and (max-width:1599px) {  /*desktop*/
+  h4 {
+    background-color: blue;
+  }
+}
+@media (min-width:1600px) {  /*desktop and tv*/
+  h4 {
+    background-color: yellow;
+  }
+}
+```
+
+[Try it](http://jsfiddle.net/CelineMartinetSanchez/gjkqdkf3/)
+
+---
+
+##Tool
+
+###Viewport Resizer
+
+[![Viewport Resizer](http://celine-m-s.github.io/mentoring/assets/40-responsive/viewport-resizer-218232431eff343c5faae6a858918c2f.png)](http://lab.maltewassermann.com/viewport-resizer/)
+
+---
+
+## Your turn
+
+Make the font size of your h1 reduce when displayed on a mobile.
+
+---
+
+##Resources
+
+- [Logic in Media Queries](http://css-tricks.com/logic-in-media-queries/)
+
+- [Media Queries showcase](http://mediaqueri.es/)
+
+- [Understanding the viewport](http://frugihoyi.wordpress.com/2013/04/20/optimizing-webpages-for-mobile-devices-part-1-the-viewport-meta-tag)
+
+- [The first article about responsive design](http://alistapart.com/article/responsive-web-design)
+
+--
+
+##Credits
+
+- [Intro image](http://www.hangar17.com/en/responsive-webdesign)
+          </script>
+        </section>
+      </div>
+
+      <div class="progress"><span></span></div>
+<!--       <div class="print">
+        <a href="/slides/01-static-website/40-responsive.html?print-pdf">PDF-friendly</a>
+      </div> -->
+    </div>
+
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/lib/js/head.min.js"></script>
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      history: false,
+      keyboard: true,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      fragments: true,
+      embedded: false,
+      autoSlide: 0,
+      autoSlideStoppable: true,
+      mouseWheel: false,
+      hideAddressBar: true,
+      previewLinks: false,
+      transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/linear(2d)
+      transitionSpeed: 'default',
+      backgroundTransition: 'default',
+      viewDistance: 3,
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } }
+      ]
+
+      });
+
+    </script>
+  </body>
+</html>

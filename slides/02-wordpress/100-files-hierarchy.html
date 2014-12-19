@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/theme/moon.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/lib/css/zenburn.css">
+     <link rel="stylesheet" href="http://celine-m-s.github.io/mentoring/assets/reveal-custom-f6b7bd51ee5e7779846ca430161b3e2f.css">
+    <script>
+      // If the query includes 'print-pdf' we'll use the PDF print sheet
+      document.write( '<link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="state-background"></div>
+      
+      <div class="slides">
+        <section data-markdown data-separator="^\n---\n$" data-vertical="^\n--\n$">
+          <script type="text/template">
+            ##Template nomenclature hierarchy
+
+--
+
+###Wordpress template required files:
+
+- index.php
+
+- style.css
+
+But what if we want to have a different layout for the home page?
+
+--
+
+[![](http://celine-m-s.github.io/mentoring/assets/100-template-hierarchy/template-hierarchy-retina-light-d021c42b19417e2abd4d2ed7407432f5.jpg)](http://wphierarchy.com)
+
+--
+
+###Most commonly used files: 
+
+- single.php: manages all display formatting for **individual posts**,
+
+- page.php: manages all display formating for **individual pages**,
+
+- home.php: manages all display formatting for the **home page**,
+
+- 404.php: manages all display formatting for any **page not found**,
+
+- archive.php: manages all display formatting for **post-listing pages**. 
+
+--
+
+###Tips
+
+- Your index.php should be the cleanest possible: the arch and this 'basic' loop: 
+
+```php
+<?php get_header(); ?>
+
+ <?php if (have_posts()) : ?>
+  <?php while (have_posts()) : the_post(); ?>
+    <h3><?php the_title(); ?></h3>
+    <?php the_content(); ?>
+    <?php wp_link_pages(); ?>
+    <?php edit_post_link(); ?>
+ 
+  <?php endwhile; ?>
+ 
+  <?php
+    if ( get_next_posts_link() ) {
+      next_posts_link();
+    }
+  ?>
+
+  <?php
+    if ( get_previous_posts_link() ) {
+      previous_posts_link();
+    }
+  ?>
+ 
+<?php else: ?>
+  <p>No posts found. :(</p>
+
+<?php endif; ?>
+
+<?php get_footer(); ?>
+```
+--
+
+###Tips
+
+- Want to add comments? Get inspired by the Twenty Twelve theme and its comments management system.
+
+  - Download [this code](https://github.com/celine-m-s/mon-petit-poney/blob/master/comments.php),
+
+  - Place it into your theme's folder and name it 'comments.php',
+
+  - Copy / paste the following code wherever you want to activate comments *inside a loop*:
+
+```php
+<?php comments_template('/comments.php', true); ?>
+```
+</br>
+</br>
+[Live example here](https://github.com/celine-m-s/mon-petit-poney/blob/master/single.php)
+---
+
+##Page templates
+
+--
+
+Only on individual webpages (contact, prices, ...).
+
+Let you choose different layouts directly on the admin area.
+
+--
+
+![](http://celine-m-s.github.io/mentoring/assets/100-template-hierarchy/page-template-51c64aa5a6a1670180c9de962901bea6.png)
+
+--
+
+###Creating a page template
+
+Simply duplicate index.php (or another page) and add the following **at the beginning**:
+
+```php
+<?php
+/*
+Template Name: Some gorgeous name
+*/
+?>
+```
+
+That's it!
+
+---
+##Your turn!
+
+- Have a look at [the template hierarchy](http://wphierarchy.com). Choose one element and explain to your partner what it is used for.
+
+- Duplicate your index.php to make a page.php,
+
+- "Clean" the index.php to keep only the arch and the loop,
+
+- Customize and / or create the following files: 
+  
+  - single.php
+
+  - page.php
+
+  - home.php
+
+  - 404.php
+
+  - archive.php.
+
+--
+
+- Create a page template called 'sidebar' with a sidebar and another one without a sidebar called 'full-page layout'. 
+
+###Tip
+
+You can use the [What the file](http://wordpress.org/plugins/what-the-file) plugin to see which file is being used.
+---
+
+##Documentation
+
+- [Wordpress template hierarchy](http://wphierarchy.com)
+
+- [Template Hierarchy Codex documentation](http://codex.wordpress.org/Template_Hierarchy)
+
+- [Page templates](http://codex.wordpress.org/Page_Templates)
+          </script>
+        </section>
+      </div>
+
+      <div class="progress"><span></span></div>
+<!--       <div class="print">
+        <a href="/slides/02-wordpress/100-files-hierarchy.html?print-pdf">PDF-friendly</a>
+      </div> -->
+    </div>
+
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/lib/js/head.min.js"></script>
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      history: false,
+      keyboard: true,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      fragments: true,
+      embedded: false,
+      autoSlide: 0,
+      autoSlideStoppable: true,
+      mouseWheel: false,
+      hideAddressBar: true,
+      previewLinks: false,
+      transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/linear(2d)
+      transitionSpeed: 'default',
+      backgroundTransition: 'default',
+      viewDistance: 3,
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } }
+      ]
+
+      });
+
+    </script>
+  </body>
+</html>

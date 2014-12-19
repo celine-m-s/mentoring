@@ -1,0 +1,617 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/theme/moon.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/lib/css/zenburn.css">
+     <link rel="stylesheet" href="http://celine-m-s.github.io/mentoring/assets/reveal-custom-f6b7bd51ee5e7779846ca430161b3e2f.css">
+    <script>
+      // If the query includes 'print-pdf' we'll use the PDF print sheet
+      document.write( '<link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="state-background"></div>
+      
+      <div class="slides">
+        <section data-markdown data-separator="^\n---\n$" data-vertical="^\n--\n$">
+          <script type="text/template">
+            ##A programming language, what for?
+
+--
+
+![](http://celine-m-s.github.io/mentoring/assets/20-intro-www/client-server-pagebuild-1f50c356eb0b1fd948a4f1d0e4d17ae6.png)
+
+
+--
+
+##PHP
+
+- First version created in 1995 by Rasmus Lerdorf
+
+- Was short for _"Personal Home Page"_ and now stands for _"Hypertext Preprocessor"_
+
+- PHP is a widely-used, open source scripting language
+
+--
+
+##What is a PHP file?
+
+- PHP files can contain text, HTML, CSS, Javascript and PHP code,
+
+- PHP code is executed on the server and then returned to the browser as plain HTML,
+
+- PHP files have a default file extension of ".php".
+
+--
+
+###Who uses PHP?
+
+- Yahoo!
+
+- Facebook
+
+- a looooot of other websites...
+
+- ... and WordPress!
+
+---
+
+##Programming concepts
+
+--
+
+###Simple expression
+
+```php
+<?php echo "Hello World!"; ?>
+```
+
+Will do that: 
+
+Hello World!
+
+--
+
+####Expression: explanation
+
+- expressions are combinations of values, variables, operations and function calls to produce some desired result.
+
+- logical operators: and ( `&&` ), or ( `||` ), not ( `!` )
+
+- Operations are executed [in a specific order](http://php.net/manual/en/language.operators.precedence.php) -- like in mathematics.
+
+Example: 
+
+```php
+<?php
+  echo (3 + 4 * 5);  // What will that print?
+?>
+```
+
+--
+
+###Comments
+
+```php
+// A one line comment
+/*
+  A multi-line comment
+*/
+```
+
+--
+
+####DocBlock Comments
+
+```php
+<?php
+/*
+*
+* A DocBlock comment
+*
+*/
+?>
+```
+
+--
+
+###Variables data types
+
+- All data has a type associated with it, which determines what you can do with / to it.
+
+- Example of types:
+
+  - int: an integer, a number with no fractional part ("3"),
+
+  - float: a number that may have a fraction ("3.5"),
+
+  - bool: boolean, either *true* or *false* ("true"),
+
+  - string: text ("hi there!"),
+
+  - array: a variable that stores one or more similar type of values,
+
+  - object: a combinaison of variables, arrays or functions.
+
+--
+
+###Variable
+
+```php
+$recipe = "Porridge"; // String
+$times = 3; // Integer
+$isScottish = true // Boolean
+
+<p>My favourite recipe is <b><?php echo $recipe; ?></b>. I eat that <?php echo $times ?> times a day.</p>
+
+```
+
+Will do that:
+
+<p>My favourite recipe is <b>Porridge</b>. I eat that 3 times a day.</p>
+
+--
+
+####Variable: explanation
+
+- A variable is a placeholder for data. Like the "x" in mathematics.
+
+- Syntax: `$variable` : a dollar sign, then letters and numbers (never begin with a number, put _ before. Example: `$_42="meaning of life"`).
+
+- Variables can be assigned a number, one or more letters ("string") or a collection ("array") of numbers and / or string.
+
+- You can add / join them, multiply them, ...
+
+- You can compare them (`==`, `!=`, `<`, `>`, `<=`, `>=`)
+
+--
+
+
+###Arrays
+
+- An array in PHP is an ordered collection of key-value pairs.
+
+- By default, array keys will start at 0 and proceed in order: 1, 2, 3, ...
+
+- We can choose to use our own keys instead, as long as they are either strings or integers.
+
+--
+
+####Defining an array
+
+```php
+<?php
+$animals = array('pig','dog','cat');
+
+// Same as
+$animals = array(
+  0 => 'pig',
+  1 => 'dog',
+  2 => 'cat',
+);
+
+$languages = array(
+  'php' => 'Intro to PHP',
+  'ruby' => 'Explaining Ruby',
+);
+?>
+```
+
+####Accessing an array's element with its key
+
+```php
+<?php
+echo ($languages['php']);
+?>
+```
+
+--
+
+####Adding or deleting from an array
+
+```php
+<?php
+$animals[]="turtle";
+unset($animals[0]);
+?>
+```
+
+---
+
+##Control flow
+
+--
+
+###Control flow: looping
+
+- Sometimes we need to do the same thing several times. Loops are the answer.</br></br>
+
+Iterations examples: 
+
+- **`while`**: loop until a condition is met.
+
+```php
+<?php
+while ($x<10) { /* do something */ }
+?>
+```
+
+--
+
+- **`for`**: loop over a set number of iterations.
+
+```php
+<?php
+for ($x=1;$x<10;$x++) { /* do something */ }
+?>
+```
+
+- **`foreach`**: loop over all items of an array or a list.
+```php
+<?php
+foreach ($studentArray as $student) {/* do something */}
+?>
+```
+--
+
+###Control flow: Making decisions
+
+- What if we want to execute different code based on our data?
+
+- `if - else if - else`: executes different code based on the value of test expression.
+
+--
+
+###The `if` statement
+
+```php
+<?php 
+if (true) {
+  echo "Yes";
+}
+else {
+  echo "No";
+}
+?>
+```
+
+--
+
+####Example
+
+```php
+<?php
+$var=rand(0,10);
+if (1 == $var) {
+  echo ("var is 1");
+}
+else if ( 1 < $var && 5 > $var) {
+  echo ("var is between 1 and 5");
+}
+else {
+  echo ("var is greater than 5");
+}
+?>
+```
+
+--
+
+###Control flow: the 'switch' statement
+
+```php
+<?php
+switch (n) {
+  case label1:
+    // code to be executed if n=label1;
+    break;
+  case label2:
+    // code to be executed if n=label2;
+    break;
+  case label3:
+    // code to be executed if n=label3;
+    break;
+    // ...
+  default:
+    // code to be executed if n is different from all labels;
+}
+?>
+```
+
+---
+
+##Functions
+
+--
+
+- A function is the basic unit of reuse
+
+- Allow you to *write logic once* and reuse it infinitely
+
+- Functions can take 0 or more arguments and optionally **return** a result.
+
+Example
+
+```php
+<?php
+function square ( $x ) {
+  return $x * $x;
+}
+
+echo (square(4)); // Will display 16
+echo (square(square(4))); // What will be the result?
+?>
+
+```
+
+--
+
+##Statements
+
+--
+
+You will mainly see 'echo', 'print' or 'require'.
+
+###[Zoom on the `include` statement](http://php.net/manual/en/function.include.php)
+
+```php
+**vars.php**
+
+<?php
+$color = 'green';
+$fruit = 'apple';
+?>
+
+**test.php**
+
+<?php
+echo "A $color $fruit"; // A
+include 'vars.php';
+echo "A $color $fruit"; // A green apple
+?>
+```
+
+---
+
+##Comparison
+
+--
+
+###Loose comparison
+
+```php
+<?php
+if (2 == 3) { echo "false"; }
+if (3 != 4) { echo "true"; }
+if (4 < 5) {echo "true"; }
+if (5 > 4) {echo "true"; }
+?>
+```
+
+--
+
+###Strict comparison
+
+```php
+<?php
+  if (2 === "3") { echo "false"; }
+  if (2 !== "3") { echo "true"; }
+
+
+?>
+```
+--
+
+###Logical operators
+
+```php
+<?php
+// NOT
+if (!true) { echo "false"; }
+
+// AND
+if (true && false) { echo "false"; }
+
+// OR
+
+if (true || false) { echo "false" }
+?>
+
+```
+
+---
+
+##MySQL
+
+--
+###SQL
+
+- Short for 'Search Query Language'
+
+- Special programming language used for manipulating data held in a relational database management system.
+
+- Example of query: 
+```sql
+SELECT *
+ FROM  Book
+ WHERE price > 100.00
+ ORDER BY title;
+```
+--
+
+###What is MySQL?
+
+- MySQL is a database server,
+
+- Free to download and use,
+
+- Data in MySQL is stored in database objects called 'tables'.
+
+--
+
+###A database, what for?
+
+![](http://celine-m-s.github.io/mentoring/assets/72-php/client-server-database-715b7ca6c1ee711f97fdb36be4c224f1.png)
+
+
+--
+
+###phpMyAdmin
+
+![](http://celine-m-s.github.io/mentoring/assets/72-php/phpmyadmin-4519d8fb753aedcbdfd62ff75cb234ca.png)
+
+--
+
+![](http://celine-m-s.github.io/mentoring/assets/72-php/zoom-table-6b91a9bc6833ad942dd1441c53054c6f.png)
+
+
+
+---
+
+#Using PHP and MySQL
+
+--
+
+###Install a suitable web development environment
+
+- Windows: [WAMP](http://www.wampserver.com/en/)
+
+- MAC: [MAMP](http://mamp.softonic.fr/mac)
+</br>
+</br>
+
+[If you are using OS X Yosemite](http://stackoverflow.com/questions/25139599/mamp-pro-3-05-on-mavericks-updated-to-yosemite-apache-does-not-start)
+
+---
+
+##Your turn!
+
+- Create a new file, "index.php"
+
+- Copy / paste the folowing code: 
+
+```php
+<?php
+//PHP variables declarations here
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>This is my test sheet!</title>
+</head>
+<body>
+<h1>I'm a test sheet with some <?php echo "PHP"; ?> inside.</h1>
+</body>
+</html>
+```
+
+- Play!
+
+--
+
+- Set a variable to 5, another one to 7, add them together and print the result.
+
+--
+##Solution
+
+```php
+
+<?php
+$operator1=5;
+$operator2=7;
+$result=$operator1+$operator2;
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>This is my test sheet!</title>
+</head>
+<body>
+
+<p><?php echo "$operator1 plus $operator2 equals $result" ?></p>
+
+</body>
+</html>
+
+```
+
+- Display today's date (the [PHP documentation](http://php.net/manual/en) may be helpful!)
+
+--
+
+###Back to our teacher's blog!
+
+- Change your HTML files into PHP ones by changing the extension (index.html => index.php)
+
+- Register some data in variables, like meta tags
+
+- Use the 'include' statement to "split" your home page into several files (header.php, footer.php, index.php).
+
+---
+
+##References
+
+- [Introduction to PHP](http://www.slideshare.net/bradley.holt/introduction-to-php-5176251) by Bradley Holt
+
+- [A good scheme of PHP's functionning](http://slides.com/sysumiac/lecture-5-php-basic#/8/2)
+          </script>
+        </section>
+      </div>
+
+      <div class="progress"><span></span></div>
+<!--       <div class="print">
+        <a href="/slides/02-wordpress/71-php-mysql.html?print-pdf">PDF-friendly</a>
+      </div> -->
+    </div>
+
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/lib/js/head.min.js"></script>
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      history: false,
+      keyboard: true,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      fragments: true,
+      embedded: false,
+      autoSlide: 0,
+      autoSlideStoppable: true,
+      mouseWheel: false,
+      hideAddressBar: true,
+      previewLinks: false,
+      transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/linear(2d)
+      transitionSpeed: 'default',
+      backgroundTransition: 'default',
+      viewDistance: 3,
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } }
+      ]
+
+      });
+
+    </script>
+  </body>
+</html>

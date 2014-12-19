@@ -1,0 +1,407 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/theme/moon.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/lib/css/zenburn.css">
+     <link rel="stylesheet" href="http://celine-m-s.github.io/mentoring/assets/reveal-custom-f6b7bd51ee5e7779846ca430161b3e2f.css">
+    <script>
+      // If the query includes 'print-pdf' we'll use the PDF print sheet
+      document.write( '<link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="state-background"></div>
+      
+      <div class="slides">
+        <section data-markdown data-separator="^\n---\n$" data-vertical="^\n--\n$">
+          <script type="text/template">
+            ![HTML 5](http://celine-m-s.github.io/mentoring/assets/20-intro-www/html5-logo-513a0fd162ce1af39ed6d8f35953fabb.png)
+
+It's a **markup** language.
+
+To design and animate elements of your page, **you have to tag them first**
+
+
+---
+
+## HTML Skeleton
+
+```html
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+<!-- end of file -->
+```
+
+--
+
+## HTML Skeleton
+
+```html
+<!DOCTYPE html>
+<html>
+
+
+
+  <!-- your html document goes here -->
+
+
+
+</html>
+
+<!-- end of file -->
+```
+
+- **Tips**: Use **⌘⇧V** on Mac or **Ctr⇧V** on Windows to paste & indent in Sublime.
+
+--
+
+## HTML Skeleton
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <!-- Intelligence (meta-data) -->
+
+  </head>
+  <body>
+
+    <!-- Things to display in the page -->
+
+  </body>
+</html>
+
+<!-- end of file -->
+```
+
+--
+
+## HTML Skeleton
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello world</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <!-- Things to display in the page -->
+  </body>
+</html>
+
+<!-- end of file -->
+```
+
+--
+
+## HTML Skeleton
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello world</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>Hello buddies!</h1>
+  </body>
+</html>
+
+<!-- end of file -->
+```
+
+---
+
+## Element syntax
+
+![](http://celine-m-s.github.io/mentoring/assets/21-html/element-syntax-c4937557c5ffb4c1df10d50b2a5a6d96.png)
+
+--
+
+## Example
+
+```html
+<a href="http://www.google.com" target="_blank">
+  Google
+</a>
+```
+
+Result: <a href="http://www.google.com" target="_blank">Google</a>
+
+### Quizz:
+
+- What is the element name?
+- What is the element content?
+- What are the 2 attributes (name and value)?
+
+--
+
+## Titles
+
+```html
+<h1>[...]</h1>  <!-- Only one per page! SEO important -->
+
+<h2>[...]</h2>
+<h3>[...]</h3>
+<h4>[...]</h4>
+<h5>[...]</h5>
+<h6>[...]</h6>
+```
+
+--
+
+## Paragraphs
+
+```html
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+  Veritatis laboriosam mollitia autem at ab omnis iure quis
+  asperiores inventore eos nam aut iusto officiis deserunt
+  nihil, sequi tempore impedit quae?
+</p>
+```
+
+--
+
+## Emphasize
+
+```html
+<p>
+  You can emphasize <em>some words</em>,
+  and even <strong>more if needed</strong>.
+</p>
+```
+
+--
+
+## Lists
+
+```html
+<h2>Shopping List</h2>
+<ul>
+  <li>Milk</li>
+  <li>Butter</li>
+</ul>
+
+<h2>World Cup 2014</h2>
+<ol>
+  <li>Germany</li>
+  <li>Argentina</li>
+  <li>Netherlands</li>
+  <li>Brazil</li>
+</ol>
+```
+
+--
+
+## Images
+
+```html
+<img src="logo.png" alt="Google logo">
+```
+
+---
+
+## Organizing a page with HTML5
+
+![HTML5 Tags](http://celine-m-s.github.io/mentoring/assets/21-html/html5-tags-1e9dee11b826f48c71aa578012e5c70a.png)
+
+--
+
+## Header and navbar
+
+```html
+<header>
+  <h1>Some very important title</h1>
+  <nav>
+    <ul>
+      <li>One line</li>
+      <li>Another line</li>
+    </ul>
+  </nav>
+</header>
+```
+
+--
+
+## Section
+
+```html
+<section>
+  <h2>Title of my section</h2>
+  <p>An important part of your page.</p>
+</section>
+```
+
+--
+
+## Article
+
+```html
+<article>
+  <h3>Article title</h3>
+  <img src="image" alt="some description">
+  <p>Some description</p>
+</article>
+```
+
+--
+
+## Aside
+
+```html
+<aside>
+  <p>This is a sidebar!</p>
+</aside>
+```
+
+--
+
+## Footer
+
+```html
+<footer>
+  <p>Copyright <a href="http://www.c-m-s.co">Céline Martinet Sanchez</a>2014</p>
+</footer>
+```
+
+---
+
+##Inline vs Block
+
+--
+
+There is 2 main kinds of tags: blocks and inline elements.
+
+- blocks: they typically are formatted with a line break before and after the element (thereby creating a stand-alone block of content).
+
+- inline: can appear within block-level or other inline elements. They may contain only data and other inline elements. Online elements don't begin with a new line.
+
+--
+
+###Examples of block elements
+
+`<article>`, `<aside>`, `<p>`, `<header>`, `<h1>`, ...
+
+[See the full list](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements)
+
+--
+
+###Example of inline elements
+
+`<a>`, `<b>`, `<img>`, `<button>`, ...
+
+[See the full list](https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elemente)
+
+---
+
+
+## Your turn!
+
+Create your own one-page website.
+
+Here are some clues:
+
+- Create a new project (using Github app), and create your first **index.html** inside.
+- Add some intelligence (head).
+- Organize your page with a menu (a list), different sections and a footer.
+- You may want to add a title, subtitles, pictures, paragraphs, videos, ....
+
+Bonus: have a look at the [Mozilla Labs](https://mozillalabs.com/en-US) website. Inspect the page and read the source code.
+
+---
+
+## Tools
+
+- Logos: 
+
+  - [The Noun Project](http://thenounproject.com)
+
+  - [Creative Market](https://creativemarket.com/)
+
+- Icons:
+
+  - [Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/)
+
+---
+
+## Documentation
+
+### Main
+- [Good practices and a nice reminder](http://codeguide.co/)
+
+### Secondary
+- [HTML5 elements quick list](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/HTML5_element_list)
+- [HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+          </script>
+        </section>
+      </div>
+
+      <div class="progress"><span></span></div>
+<!--       <div class="print">
+        <a href="/slides/01-static-website/21-html.html?print-pdf">PDF-friendly</a>
+      </div> -->
+    </div>
+
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/lib/js/head.min.js"></script>
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      history: false,
+      keyboard: true,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      fragments: true,
+      embedded: false,
+      autoSlide: 0,
+      autoSlideStoppable: true,
+      mouseWheel: false,
+      hideAddressBar: true,
+      previewLinks: false,
+      transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/linear(2d)
+      transitionSpeed: 'default',
+      backgroundTransition: 'default',
+      viewDistance: 3,
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } }
+      ]
+
+      });
+
+    </script>
+  </body>
+</html>

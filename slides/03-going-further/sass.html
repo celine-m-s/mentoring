@@ -1,0 +1,498 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/theme/moon.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/lib/css/zenburn.css">
+     <link rel="stylesheet" href="http://celine-m-s.github.io/mentoring/assets/reveal-custom-f6b7bd51ee5e7779846ca430161b3e2f.css">
+    <script>
+      // If the query includes 'print-pdf' we'll use the PDF print sheet
+      document.write( '<link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="state-background"></div>
+      
+      <div class="slides">
+        <section data-markdown data-separator="^\n---\n$" data-vertical="^\n--\n$">
+          <script type="text/template">
+            ##Sass
+###Syntactically Awesome StyleSheet
+
+CSS preprocesor: written in SCSS, compiled in CSS.
+
+Meta language used to describe a document's style in a structured and clear way.
+
+--
+
+##Files format
+
+*.sass*
+
+```sass
+li
+  font-family: $sans
+  font-size: 1.2em
+  color: $highlight
+```
+
+*.scss*
+
+```scss
+li {
+  font-family: @sans;
+  font-size: 1.2em;
+  color: $hightlight;
+}
+```
+
+---
+
+##Why use Sass?
+
+--
+
+- Variables
+
+- Mixins and extensions
+
+- Nesting
+
+- Import
+
+--
+
+###Variables
+
+```scss
+$varname: value;
+```
+</br>
+</br>
+Can be: 
+
+- A color (#ccc)
+
+- A string (some text)
+
+- Numbers
+
+- A boolean (true / false)
+--
+
+###Variable: example
+
+```scss
+$basecolor: #4F3214;
+
+h1 {
+  color: $basecolor;
+}
+```
+
+--
+
+###Comments
+
+```scss
+// This is a comment
+
+// It will NOT be compiled on CSS.
+
+/* This is a CSS comment and will be compiled */
+```
+
+--
+
+###Nesting
+
+scss
+```sass
+h1 {
+  font-size: 2em;
+  a {
+    color: #949464;
+  }
+}
+```
+
+compiled to css
+```css
+h1 {
+  font-size: 2em;
+}
+
+h1 a {
+  color: #949464;
+}
+```
+
+--
+
+###Nesting: example 2
+
+scss
+```css
+h1 {
+  font: {
+   size: 2em;
+   family: serif;
+   weight: bold;
+  }
+}
+```
+
+compiled to css
+```css
+h1 {
+  font-size: 2em;
+  font-family: serif;
+  font-weight: bold;
+}
+```
+--
+
+###Nesting: advantages
+
+- Less code
+
+- More organized
+
+- Easier to maintain
+
+--
+
+###Extend
+
+```scss
+@extend selector
+```
+
+- You don't need to add several selectors to your HTML to overwrite your styles!
+
+- You can re-use several lines of code
+
+- Use it to define a group of properties shared by several elements.
+
+--
+
+###Extend: example
+
+```html
+<div class="error seriousError">
+  Oh no! You've been hacked!
+</div>
+```
+
+sass
+```css
+.error {
+  border: 1px #f00;
+  background-color: #fdd;
+}
+.seriousError {
+  @extend .error;
+  border-width: 3px;
+}
+```
+
+compiled to css
+```css
+.error, .seriousError {
+  border: 1px #f00;
+  background-color: #fdd;
+}
+
+.seriousError {
+  border-width: 3px;
+}
+```
+
+--
+
+###Placeholders
+
+```scss
+%placeholder
+```
+
+--
+
+- Sometimes you’ll write styles for a class that you only ever want to @extend, and never want to use directly in your HTML.
+
+- Especially true when writing a sass library!
+
+--
+
+###Placeholders: example
+
+scss
+```css
+// This ruleset won't be rendered on its own.
+#context a%extreme {
+  color: blue;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.notice {
+  @extend %extreme;
+}
+```
+
+compiled to css
+```css
+#context a.notice {
+  color: blue;
+  font-weight: bold;
+  font-size: 2em; 
+}
+```
+
+--
+
+###Mixins
+
+scss
+```css
+// Define a mixin
+@mixin something($parameter, $parameter: default-value) {
+  …
+}
+
+// And then use it
+.selector {
+  @include something(value, value);
+}
+```
+
+--
+
+###Mixins
+
+- Same as @extend but you have parameters!
+
+- The entired code is duplicated. This can make your code longer.
+
+--
+
+###Mixins: example
+
+scss
+```scss
+@mixin box($width:100px) {
+  width:$width;
+}
+.box1 {
+  @include box(50px);
+}
+.box2 {
+  @include box(200px);
+}
+```
+
+compiled to css
+```css
+.box1 {
+  width: 50px;
+}
+
+.box2 {
+  width: 200px;
+}
+```
+
+--
+
+###Parent selector: *&*
+
+- The *&* will be replaced by the parent selector.
+
+- Very useful when nesting classes.
+
+- Can be used wherever.
+
+--
+
+###Parent selector *&*: example
+
+scss
+```scss
+a {
+  color:white;
+  &:hover {
+    color:red
+  }
+}
+```
+compiled to css
+```css
+a {
+  color: white;
+}
+a:hover {
+  color:red;
+}
+```
+--
+
+###Partials
+
+```scss
+@import 'filename';
+
+// Don't put the _
+```
+
+--
+
+###Partials and @import
+
+- Let you split your style into several subfolders.
+
+- Compile in a single file the content of several ones (called "partials").
+
+- Each partial name must begin with "_".
+
+--
+
+###Partials and @import: example
+
+```scss
+@import 'reset.scss';
+```
+--
+###Partials and @import: example of files organization
+
+- _reset.scss: a reset stylesheet
+
+- _setup.scss: gathers our variables
+
+- style.scss: imports _reset.scss and _setup.scss
+
+- style.css: the compiled style
+
+---
+
+##Setup
+
+- **MAC**: nothing to be done
+
+- **Windows**: you need to install [Ruby](http://rubyinstaller.org)
+
+- **Linux**: Ruby package
+
+--
+
+##Install Sass
+
+- Command line:
+
+```bash
+gem install sass
+```
+
+- Interface: [Scout](http://mhs.github.io/scout-app)
+
+---
+
+##How to use Sass
+
+--
+
+###Using Sass
+
+- Rename your style.css into style.scss and place it in a folder called "sass"
+
+- Create a new style.css (empty)
+
+- Open Scout, create a new projet, select your (where your style.scss and style.css are) folders and run!
+
+--
+
+###Bootstrap and Sass
+
+Bootstrap Sass version can be [downloaded here](https://github.com/twbs/bootstrap-sass).
+
+Have a look at [this boilerplate](https://github.com/celine-m-s/boilerplate-sass-wde) for a basic use.
+
+--
+
+###Command line and minifying css
+
+- To run in command line:
+
+`sass --watch style.scss:style.css`
+
+- To minify in command line: 
+
+`sass --watch style.scss:style.css --style compressed
+
+---
+
+##Documentation
+
+- [Official Sass doc](http://sass-lang.com)
+
+- [The Sass way, a wonderful blog](thesassway.com)
+
+- [Get Bootstrap](http://getbootstrap.com/getting-started) and [Bootstrap in Sass](https://github.com/twbs/bootstrap-sass).
+          </script>
+        </section>
+      </div>
+
+      <div class="progress"><span></span></div>
+<!--       <div class="print">
+        <a href="/slides/03-going-further/sass.html?print-pdf">PDF-friendly</a>
+      </div> -->
+    </div>
+
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/lib/js/head.min.js"></script>
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      history: false,
+      keyboard: true,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      fragments: true,
+      embedded: false,
+      autoSlide: 0,
+      autoSlideStoppable: true,
+      mouseWheel: false,
+      hideAddressBar: true,
+      previewLinks: false,
+      transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/linear(2d)
+      transitionSpeed: 'default',
+      backgroundTransition: 'default',
+      viewDistance: 3,
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } }
+      ]
+
+      });
+
+    </script>
+  </body>
+</html>

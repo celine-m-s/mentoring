@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/theme/moon.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/lib/css/zenburn.css">
+     <link rel="stylesheet" href="http://celine-m-s.github.io/mentoring/assets/reveal-custom-f6b7bd51ee5e7779846ca430161b3e2f.css">
+    <script>
+      // If the query includes 'print-pdf' we'll use the PDF print sheet
+      document.write( '<link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="state-background"></div>
+      
+      <div class="slides">
+        <section data-markdown data-separator="^\n---\n$" data-vertical="^\n--\n$">
+          <script type="text/template">
+            ##What is Wordpress?
+
+- Open Source
+
+- Free of cost
+
+- A blogging platform
+
+- A Content Management System: no more code, just content.
+
+--
+
+###Wordpress use
+
+[![](http://celine-m-s.github.io/mentoring/assets/70-general-introduction/wp-trends-76db1e40db44036a99179ccf858a4759.png)](http://trends.builtwith.com/cms/WordPress)
+
+--
+
+##Who is using Wordpress?
+
+- Businesses
+
+  - [Adobe blog](http://blogs.adobe.com)
+
+  - [Bata](http://www.bata.com/)
+
+  - [Mozilla labs blog](http://blog.mozilla.org/labs)
+
+  - [Raven Tools](http://raventools.com)
+
+- Universities
+
+  - [Florida College of Medicine, USA](http://med.ucf.edu)
+
+  - [University of Manitoba, Canada](http://news.umanitoba.ca)
+
+  - [Bates College, USA](http://www.bates.edu)
+
+--
+
+- Newspapers
+
+ - [The New Yorker](http://www.newyorker.com)
+
+ - [Tech Crunch](http://techcrunch.com)
+ </br>
+ </br>
+
+- [More websites built with Wordpress](http://wordpress.org/showcase/)
+
+--
+
+## You can do so much more!
+
+Webapps: 
+
+- [Real estate template](http://preview.byaviators.com/?id=wp-realia)
+
+- [Forums / personnal account](http://seventhqueen.com/themedemo/?product=kleo)
+
+--
+
+##Why Wordpress?
+
+- Quite easy to learn how to blog with it,
+
+- Thousands of plugins/extensions,
+
+- Huge worldwide community and a very comprehensive documentation.
+
+---
+
+##Wordpress
+
+- ["full" version](https://wordpress.org/): needs a server and a domain name. About 50$ / year.
+  ++ : fully customisable, you can change everything.
+  -- : time-consuming, need to have strong basis in PHP if you want to be happy with the result.
+
+- ["light" version](http://www.wordpress.com): online! 100% free.
+  ++ : effective. You concentrate on content. Many templates available.
+  -- : the free version is very limited if you want to change the layout.
+
+--
+
+###wordpress.com
+
+1 . Create an account at [www.wordpress.com](http://www.wordpress.com)
+
+2 . Go to "My Sites" and click on "Create Another WordPress"
+
+3 . Enter the address you wish and click on "Create blog" (on the bottom).
+
+Then navigate to "https://yourproject.wordpress.com"
+
+You're done!
+
+--
+
+###wordpress.org
+
+1 . Create an account at [Hostinger](http://www.hostinger.fr)
+
+2 . Add a hosting and enter a domain name.
+
+3 . Wait about one day (48h max).
+
+4 . Click on "hosting" > your domain name > auto installer > Wordpress and wait 5 minutes.
+
+5 . Then go to yourdomainname/wp-login.php and connect
+
+---
+
+##Learning Wordpress
+
+- PHP and MySQL introduction,
+
+- Install Wordpress and alter settings,
+
+- Learn template development and make your own:
+
+  - index.php: make the "arch" work **and then** implement the loop,
+
+  - add other files: home.php, page.php, 404.php, ... and clean index.php,
+
+- Add widgets,
+
+- Add plugins,
+
+- Add content.
+          </script>
+        </section>
+      </div>
+
+      <div class="progress"><span></span></div>
+<!--       <div class="print">
+        <a href="/slides/02-wordpress/70-general-introduction.html?print-pdf">PDF-friendly</a>
+      </div> -->
+    </div>
+
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/lib/js/head.min.js"></script>
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      history: false,
+      keyboard: true,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      fragments: true,
+      embedded: false,
+      autoSlide: 0,
+      autoSlideStoppable: true,
+      mouseWheel: false,
+      hideAddressBar: true,
+      previewLinks: false,
+      transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/linear(2d)
+      transitionSpeed: 'default',
+      backgroundTransition: 'default',
+      viewDistance: 3,
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } }
+      ]
+
+      });
+
+    </script>
+  </body>
+</html>

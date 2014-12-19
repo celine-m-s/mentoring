@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/theme/moon.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/lib/css/zenburn.css">
+     <link rel="stylesheet" href="http://celine-m-s.github.io/mentoring/assets/reveal-custom-f6b7bd51ee5e7779846ca430161b3e2f.css">
+    <script>
+      // If the query includes 'print-pdf' we'll use the PDF print sheet
+      document.write( '<link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="state-background"></div>
+      
+      <div class="slides">
+        <section data-markdown data-separator="^\n---\n$" data-vertical="^\n--\n$">
+          <script type="text/template">
+            ##Wordpress inside
+
+--
+
+##How does a template work?
+
+![](http://celine-m-s.github.io/mentoring/assets/73-wp-back/wordpress-files-947725b8053e5b201eb56098cc100d98.png)
+
+---
+
+##Theme anatomy
+
+--
+
+```phph
+wp-content/themes/*
+```
+
+Themes consist of a collection of HTML, CSS, PHP and often Javascript files.
+
+Only 2 documents are required for a template to work:
+
+- style.css
+
+- index.php
+
+--
+
+##Required files
+
+###style.css
+
+```css
+/*
+Theme Name: Twenty Twelve
+Theme URI: http://wordpress.org/themes/twentytwelve
+Author: the WordPress team
+Author URI: http://wordpress.org/
+Description: The 2012 theme for WordPress is a fully responsive theme that looks great on any device. 
+Version: 1.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: light, gray, white, one-column, two-columns
+*/
+```
+
+--
+
+##Required files
+
+###index.php
+
+index.php calls: 
+
+- get_header();
+
+- The loop
+
+- get_sidebar
+
+- get_footer
+
+--
+
+###index.php
+
+![](http://celine-m-s.github.io/mentoring/assets/73-wp-back/wp-index-3d4fe42e7ef231e930155059308686c9.png)
+
+
+---
+
+##[Template tags](https://developer.wordpress.org/theme/basics/template-tags/)
+
+--
+
+A template tag is simply a piece of code that tells WordPress to get an information. It is broken up into three components:
+
+- A PHP code tag
+
+- A WordPress function
+
+- Optional parameters
+
+For example, the template tag
+  
+```php
+<?php get_header(); ?>
+```
+
+tells WordPress to get the header.php file and include it in the current theme file. 
+
+--
+
+There is [plenty of template tags](http://www.trupela.com/wp-content/uploads/2009/11/WordPress-Visual-Cheat-Sheet.pdf).
+
+---
+
+##Your turn!
+
+Form groups of about 4 persons. Each group will open the page.php file and explain how the document works.
+
+Begin with the arch (header, sidebar, footer) and continue with the main content.
+
+- Find elements you already know: HTML tags, classes, ...
+
+- What files `get_header();`, `get_sidebar()` and `get_footer();` are calling? What does it do if you remove those template tags from page.php?
+
+--
+
+- Now focus on the central part. Read out the code and guess what it will do.
+
+- Concentrate on the unknown elements: everything enclosed in `<?php ?>` tags. Compare the original code, in Sublime, to the generated code, in your browser. What do you deduce?
+
+You don't have to be able to explain everything in detail. Make a guess, try it out, change the content and see what's happening.
+
+---
+
+##Documentation
+
+- [Wordpress introduction to template tags](http://codex.wordpress.org/Stepping_Into_Template_Tags)
+
+- [The anatomy of a WordPress theme](https://yoast.com/wordpress-theme-anatomy), by Yoast
+          </script>
+        </section>
+      </div>
+
+      <div class="progress"><span></span></div>
+<!--       <div class="print">
+        <a href="/slides/02-wordpress/73-wordpress-back.html?print-pdf">PDF-friendly</a>
+      </div> -->
+    </div>
+
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/lib/js/head.min.js"></script>
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      history: false,
+      keyboard: true,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      fragments: true,
+      embedded: false,
+      autoSlide: 0,
+      autoSlideStoppable: true,
+      mouseWheel: false,
+      hideAddressBar: true,
+      previewLinks: false,
+      transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/linear(2d)
+      transitionSpeed: 'default',
+      backgroundTransition: 'default',
+      viewDistance: 3,
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } }
+      ]
+
+      });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,468 @@
+<!doctype html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/theme/moon.css">
+    <link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/lib/css/zenburn.css">
+     <link rel="stylesheet" href="http://celine-m-s.github.io/mentoring/assets/reveal-custom-f6b7bd51ee5e7779846ca430161b3e2f.css">
+    <script>
+      // If the query includes 'print-pdf' we'll use the PDF print sheet
+      document.write( '<link rel="stylesheet" href="http://celine-m-s.github.io/telecom/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="state-background"></div>
+      
+      <div class="slides">
+        <section data-markdown data-separator="^\n---\n$" data-vertical="^\n--\n$">
+          <script type="text/template">
+            ##The loop, what for? 
+
+--
+
+###index.php
+
+Displays your last posts or a custom page.
+
+![](http://celine-m-s.github.io/mentoring/assets/73-wp-back/wp-index-3d4fe42e7ef231e930155059308686c9.png)
+
+--
+
+![](http://celine-m-s.github.io/mentoring/assets/90-loop/wp-index-278a92746897fb8039d404bff7be7c4f.png)
+
+---
+
+##Loop anatomy
+
+--
+
+![](http://celine-m-s.github.io/mentoring/assets/90-loop/loop-query-195b990049857443ccaf01647db5f495.png)
+
+--
+
+###A simple loop
+
+```php
+  <?php if (have_posts()) : ?>
+   <?php while (have_posts()) : the_post(); ?>
+    <?php the_content(); ?>
+   <?php endwhile; ?>
+ <?php endif; ?>
+```
+
+--
+
+###A more complicated one
+
+```php
+ <?php if (have_posts()) : ?>
+  <?php while (have_posts()) : the_post(); ?>
+    <h3><?php the_title(); ?></h3>
+    <?php the_content(); ?>
+    <?php wp_link_pages(); ?>
+    <?php edit_post_link(); ?>
+ 
+  <?php endwhile; ?>
+ 
+  <?php
+    if ( get_next_posts_link() ) {
+      next_posts_link();
+    }
+  ?>
+
+  <?php
+    if ( get_previous_posts_link() ) {
+      previous_posts_link();
+    }
+  ?>
+ 
+<?php else: ?>
+  <p>No posts found. :(</p>
+
+<?php endif; ?>
+```
+
+--
+
+####1 - Check if there is posts
+
+```php
+ <?php if (have_posts()) : ?>
+  <!-- if there is posts in the database, do something -->
+ 
+<?php else: ?>
+  <!-- if there is no post, do something -->
+
+<?php endif; ?> <!-- close the loop -->
+```
+--
+
+####2 - While there is posts, do the loop.
+
+```php
+ <?php if (have_posts()) : ?>
+
+  <?php while (have_posts()) : the_post(); ?>
+    <!-- while there is posts in the database, "load" each post's information and do something with it. -->
+  <?php endwhile; ?>
+ 
+<?php else: ?>
+  <p>No posts found. :(</p>
+
+<?php endif; ?>
+```
+--
+
+####3 - Use template tags
+
+```php
+ <?php if (have_posts()) : ?>
+
+  <?php while (have_posts()) : the_post(); ?>
+
+    <h3><?php the_title(); ?></h3><!-- Displays the post's title -->
+    <?php the_content(); ?><!-- Displays the post's content -->
+    <?php wp_link_pages(); ?><!-- Displays the page-links for paginated posts -->
+    <?php edit_post_link(); ?><!-- Displays a link to edit the current post -->
+
+  <?php endwhile; ?>
+ 
+<?php else: ?>
+  <p>No posts found. :(</p>
+
+<?php endif; ?>
+```
+
+--
+
+####4 - Other conditions
+
+```php
+ <?php if (have_posts()) : ?>
+  <?php while (have_posts()) : the_post(); ?>
+    <h3><?php the_title(); ?></h3>
+    <?php the_content(); ?>
+    <?php wp_link_pages(); ?>
+    <?php edit_post_link(); ?>
+ 
+  <?php endwhile; ?>
+ 
+  <?php
+    if ( get_next_posts_link() ) {
+      next_posts_link(); <!-- Link to previous posts -->
+    }
+  ?>
+
+  <?php
+    if ( get_previous_posts_link() ) {
+      previous_posts_link(); <!-- Link to newer posts -->
+    }
+  ?>
+ 
+<?php else: ?>
+  <p>No posts found. :(</p>
+
+<?php endif; ?>
+```
+
+---
+
+##Display posts according to categories
+
+--
+
+####If you have several loops in the same page ([live example here](http://www.blog-ici-et-ailleurs.com/))
+
+Your friend is [`query_posts();`](http://codex.wordpress.org/Function_Reference/query_posts)
+
+--
+
+###`query_posts()`: Usage
+
+```php
+ <?php
+// The Query
+query_posts( $args );
+
+// The Loop
+while ( have_posts() ) : the_post();
+    echo '<li>';
+    the_title();
+    echo '</li>';
+endwhile;
+
+// Reset Query
+wp_reset_query();
+?> 
+```
+
+--
+
+###`query_posts()`: Arguments
+
+[Many parameters exist](http://codex.wordpress.org/Class_Reference/WP_Query#Parameters).
+
+--
+
+####Zoom on categories
+
+Adding a category number: 
+
+```php
+<?php query_posts('cat=3'); ?>
+```
+
+How do you find the category number?
+
+1- Connect to the admin area
+
+1- Go to Posts > Categories
+
+1- Hover the category you want and look at the url. The tag_ID is the number you are looking for!
+
+--
+
+![](http://celine-m-s.github.io/mentoring/assets/90-loop/tag-id-1-4b53bc53b0b49e7c151c927cef19411a.png)
+
+--
+
+![](http://celine-m-s.github.io/mentoring/assets/90-loop/tag-id-2-5cbb8c160e26dbff187e3e2c931d565c.png)
+
+
+--
+
+###`query_posts()`: Example
+
+Display the title and then the thumbnail of the last post in the category 'featured'.
+
+```php
+<?php query_posts('cat=3&showposts=1'); ?>
+<?php while (have_posts()) : the_post(); ?>
+<h2>
+  <a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a>
+</h2>
+
+<div class="image">
+  <a href="<?php echo get_permalink(); ?>">
+    <?php the_post_thumbnail('full', array("class" => "img-responsive")); ?>
+  </a> 
+</div> 
+<?php endwhile;?>
+<?php wp_reset_query(); ?> 
+```
+
+--
+
+###Display posts don't belonging to a certain category
+
+Simply add a minus sign before the category number
+
+```php
+<?php query_posts('cat=-3'); ?>
+```
+
+---
+
+##Display posts according to categories *and "pages"*
+
+--
+
+### functions.php is your friend!
+
+--
+
+###[`pre_get_posts`](http://codex.wordpress.org/Plugin_API/Action_Reference/pre_get_posts)
+
+```php
+<?php add_action( 'pre_get_posts', 'your_function_name' ); ?> 
+```
+
+--
+
+###`pre_get_posts`: exclude categories on your main page 
+
+```php
+function exclude_category( $query ) {
+    if ( $query->is_home() && $query->is_main_query() ) {
+        $query->set( 'cat', '-1,-1347' );
+    }
+}
+add_action( 'pre_get_posts', 'exclude_category' );
+```
+
+--
+
+###`pre_get_posts`: show only one category on home page
+
+```php
+function my_home_category( $query ) {
+    if ( $query->is_home() && $query->is_main_query() ) {
+        $query->set( 'cat', '123' );
+    }
+}
+add_action( 'pre_get_posts', 'my_home_category' );
+```
+
+--
+
+Have a look at [the doc](http://codex.wordpress.org/Plugin_API/Action_Reference/pre_get_posts)
+
+---
+
+##Display posts according to "page"
+
+--
+
+###Conditional tags are your friends!
+
+--
+
+###Conditional tags: example inside a loop for categories
+
+```php
+<?php if (have_posts()) : ?>
+  <?php while (have_posts()) : the_post(); ?>
+
+    <?php if (in_category(5)) : ?>
+      <i class="fa fa-university"></i>
+    <?php elseif (in_category(6)) : ?>
+      <i class="fa fa-cloud"></i>
+    <?php elseif (in_category(4)) : ?>
+      <i class="fa fa-tag"></i>
+    <?php elseif (in_category(3)) : ?>
+      <i class="fa fa-plane"></i>
+    <?php endif; ?>
+    
+  <?php endwhile; ?>
+<?php endif; ?>
+```
+--
+
+###Conditional tags: example for authors
+
+```php
+<?php if (is_author( 'john-jones' )); ?>
+  <p>This post was written by Sir <?php the_author() ?></p>
+<?php endif; ?>
+```
+
+--
+
+Read [the doc](http://codex.wordpress.org/Conditional_Tags)
+
+---
+
+##Your turn!
+
+Add some main content to your index.php
+
+- Read carefuly [the loop doc](http://codex.wordpress.org/The_Loop)
+
+- Copy / paste, at least, this loop in your index.php after `<?php get_header(); ?>`: 
+
+```php
+ <?php if (have_posts()) : ?>
+
+  <?php while (have_posts()) : the_post(); ?>
+    <!-- while there is posts in the database, "load" each post's information and do something with it. -->
+  <?php endwhile; ?>
+ 
+<?php else: ?>
+  <p>No posts found. :(</p>
+
+<?php endif; ?>
+```
+
+--
+
+- Inside this loop add template tags:
+
+  - display the post title, enclosed in the post permalink
+
+  - display the post featured image (with a class attribute of "img-responsive")
+
+  - display an excerpt
+
+- Have a look at [this template tags cheat sheet](http://www.trupela.com/wp-content/uploads/2009/11/WordPress-Visual-Cheat-Sheet.pdf) that you already know. Find template tags and test them in the loop.
+
+--
+
+###Level 2
+
+- Display, on the home page, only posts belonging to the category 'home-page',
+
+- Don't display posts belonging to the category 'uncategorized' in the home page.
+
+---
+
+##Documentation
+
+- [The loop: Wordpress Codex](http://codex.wordpress.org/The_Loop)
+
+- [query_posts();](http://codex.wordpress.org/Function_Reference/query_posts)
+
+- [pre_get_posts](http://codex.wordpress.org/Plugin_API/Action_Reference/pre_get_posts)
+
+- [Conditional tags](http://codex.wordpress.org/Conditional_Tags)
+
+###Going further
+- [WP_query (class reference)](http://codex.wordpress.org/Class_Reference/WP_Query#Parameters) is a better but more complicated way to display posts according to categories.
+          </script>
+        </section>
+      </div>
+
+      <div class="progress"><span></span></div>
+<!--       <div class="print">
+        <a href="/slides/02-wordpress/90-loop.html?print-pdf">PDF-friendly</a>
+      </div> -->
+    </div>
+
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/lib/js/head.min.js"></script>
+    <script src="http://celine-m-s.github.io/telecom/reveal.js/js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      slideNumber: false,
+      history: false,
+      keyboard: true,
+      overview: true,
+      center: true,
+      touch: true,
+      loop: false,
+      rtl: false,
+      fragments: true,
+      embedded: false,
+      autoSlide: 0,
+      autoSlideStoppable: true,
+      mouseWheel: false,
+      hideAddressBar: true,
+      previewLinks: false,
+      transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/linear(2d)
+      transitionSpeed: 'default',
+      backgroundTransition: 'default',
+      viewDistance: 3,
+      parallaxBackgroundImage: '',
+      parallaxBackgroundSize: '',
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+        { src: 'http://celine-m-s.github.io/telecom/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } }
+      ]
+
+      });
+
+    </script>
+  </body>
+</html>
